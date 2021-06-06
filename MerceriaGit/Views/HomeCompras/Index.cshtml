@@ -1,0 +1,78 @@
+﻿@using MerceriaGit.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+
+    var saludo = "";
+    var imagen = "";
+    DateTime hoy = DateTime.Now;
+
+    if (hoy.Hour < 12 && hoy.Hour > 5)
+    {
+        saludo = "Buenos dias";
+        imagen = "dia.jpg";
+    }
+    else if (hoy.Hour > 12 && hoy.Hour <= 18)
+    {
+        saludo = "Buenas Tardes";
+        imagen = "tarde.jpg";
+    }
+    else
+    {
+        saludo = "Buenas noches";
+        imagen = "noche.jpg";
+    }
+
+    List<Productos> productosLista = (List<Productos>)ViewBag.productosPocoStock;
+    List<ImagenesProducto> imagenesProductos= (List<ImagenesProducto>)ViewBag.imagenesProductos;
+    string prefijo = "";
+
+}
+
+<!-- Imagen decorativa que cambia conforme la hora del dia -->
+<div style="height:40rem;width:100%">
+    <img class="img-rounded" style="height:100%;width:100%" src="~/Content/Imagenes/@imagen" alt="Alternate Text" />
+</div>
+
+<!-- Apartado del saludo y enzabezado de la pagina -->
+<div>
+    <h2 class="text-center" style="font-family: 'Playfair Display'">@saludo <span style="font-weight:600">Juan Lopez Gracia</span></h2>
+    <br />
+    <p class="text-justify" style="font-family: 'Playfair Display';font-size:1.8rem">En este apartado podras ver los articulos con poco stock y que seria ideal que realizaras una compra para mantener el producto siempre disponible</p>
+    <br />
+</div>
+
+<!-- Contenedor de los productos que necesitan renovar stock -->
+<h3 style="font-family: 'Playfair Display';font-weight:600">Productos con poco stock</h3>
+<div class="container" style="background-color:rgba(255,87,51,0.8);max-width:100%;border-style: solid;">
+    <br />
+    @foreach (Productos producto in productosLista)
+    {
+
+
+<div class="container" style="margin: 2rem; background-color: white; max-width: 95%; display: flex; justify-content: space-between; font-family: 'Playfair Display';">
+    @foreach (ImagenesProducto imagenProducto in imagenesProductos)
+    {
+        var nombre = "";
+        int cantidad = 0;
+        if (imagenProducto.Id_Producto == producto.Id && cantidad == 0)
+        {
+            nombre = imagenProducto.Nombre;
+            cantidad++;
+            <img src="~/Content/Imagenes/@nombre" alt="Imagen producto" style="height:15rem;width:15rem;" />
+        }
+    }
+    <div>
+        <h3>@producto.Nombre.Substring(0, 10) @if (producto.Nombre.Length > 10) { prefijo = "..."; } else { prefijo = ""; } @prefijo  </h3>
+        <br />
+        <h3>Stock restante: @producto.Existencia</h3>
+    </div>
+    <h3>@producto.Subcategorias.Categorias.Nombre</h3>
+    <h3>@producto.Subcategorias.Nombre</h3>
+    <div style="align-content:center;margin-top:5rem">
+        <a class="btn btn-success text-center" style="height:5rem;font-size:1.9rem" href="#">Comprar más&nbsp</a>
+    </div>
+</div>
+        <br />
+    }
+</div>
