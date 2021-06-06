@@ -1,0 +1,77 @@
+﻿@model MerceriaGit.Models.Compras
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+<h2 class="text-center" style="font-family: 'Playfair Display'">Editar compra</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Id_Producto, "Id Producto", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+            <div class="col-md-10">
+                @Html.DropDownList("Id_Producto", null, htmlAttributes: new { @class = "form-control", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+                @Html.ValidationMessageFor(model => model.Id_Producto, "", new { @class = "text-danger", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cantidad, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = "form-control", @style = "font-size:1.5rem;font-family: 'Playfair Display';" } })
+                @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Subtotal, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Subtotal, new { htmlAttributes = new { @class = "form-control", @style = "font-size:1.5rem;font-family: 'Playfair Display';" } })
+                @Html.ValidationMessageFor(model => model.Subtotal, "", new { @class = "text-danger", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IVA, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IVA, new { htmlAttributes = new { @class = "form-control", @style = "font-size:1.5rem;font-family: 'Playfair Display';" } })
+                @Html.ValidationMessageFor(model => model.IVA, "", new { @class = "text-danger", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Total, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Total, new { htmlAttributes = new { @class = "form-control", @style = "font-size:1.5rem;font-family: 'Playfair Display';" } })
+                @Html.ValidationMessageFor(model => model.Total, "", new { @class = "text-danger", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control", @style = "font-size:1.5rem;font-family: 'Playfair Display';" } })
+                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger", @style = "font-size:1.5rem;font-family: 'Playfair Display';" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Actualizar informacion" class="btn btn-success" style="font-family: 'Playfair Display'" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar a lista compras", "Index")
+</div>
