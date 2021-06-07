@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ComprasController.cs" />
+    <Compile Include="Controllers\EnviosHomeController.cs" />
     <Compile Include="Controllers\HomeComprasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -243,7 +244,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Imagenes\dia.jpg" />
+    <Content Include="Content\Imagenes\encaminoEnvios.jpg" />
+    <Content Include="Content\Imagenes\entregadoEnvios.jpg" />
     <Content Include="Content\Imagenes\noche.jpg" />
+    <Content Include="Content\Imagenes\pendientesEnvio.jpg" />
     <Content Include="Content\Imagenes\prueba.jpg" />
     <Content Include="Content\Imagenes\singer4423.jpg" />
     <Content Include="Content\Imagenes\tarde.jpg" />
@@ -324,6 +328,8 @@
     <Content Include="Views\Compras\Details.cshtml" />
     <Content Include="Views\Compras\Edit.cshtml" />
     <Content Include="Views\Compras\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutEnvios.cshtml" />
+    <Content Include="Views\EnviosHome\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

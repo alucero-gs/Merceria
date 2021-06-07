@@ -1,0 +1,134 @@
+﻿@using MerceriaGit.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutEnvios.cshtml";
+
+    var saludo = "";
+    var imagen = "";
+    DateTime hoy = DateTime.Now;
+
+    if (hoy.Hour < 12 && hoy.Hour > 5)
+    {
+        saludo = "Buenos dias";
+        imagen = "dia.jpg";
+    }
+    else if (hoy.Hour > 12 && hoy.Hour <= 18)
+    {
+        saludo = "Buenas Tardes";
+        imagen = "tarde.jpg";
+    }
+    else
+    {
+        saludo = "Buenas noches";
+        imagen = "noche.jpg";
+    }
+
+    List<Envios> listaEnvios = (List<Envios>)ViewBag.listaEnvios;
+}
+
+<!-- Imagen decorativa que cambia conforme la hora del dia -->
+<div style="height:40rem;width:100%">
+    <img class="img-rounded" style="height:100%;width:100%" src="~/Content/Imagenes/@imagen" alt="Alternate Text" />
+</div>
+
+<!-- Apartado del saludo y enzabezado de la pagina -->
+<div>
+    <h2 class="text-center" style="font-family: 'Playfair Display'">@saludo <span style="font-weight:600">Juan Lopez Gracia</span></h2>
+    <br />
+    <p class="text-justify" style="font-family: 'Playfair Display';font-size:1.8rem">En esta pagina encontraras la informacion resumida de los envios correspondientes del dia, los que estan en camino y los que ya se entregaron.</p>
+    <br />
+</div>
+
+<!-- Pendientes de envio -->
+<div style="background: linear-gradient(to bottom right,rgb(255,87,51), rgb(255, 152, 22), rgb(255, 255, 255)); display:flex; justify-content: space-between">
+    <img style="height:50rem;max-width:40rem;margin: 3rem" src="~/Content/Imagenes/pendientesEnvio.jpg" alt="Imagen pendientes de envio" />
+    <div class="container" style="max-width:100%;background-color: rgba(255,255,255,.2);border:solid">
+        <h3 style="font-family: 'Playfair Display';font-weight:900">Pendientes de envio</h3>
+        <br />
+        @foreach (Envios envio in listaEnvios)
+        {
+            if (envio.Estado_Envio == 1)
+            {
+                <div style="display:flex;justify-content:space-between;max-width:100%;background-color: rgba(255,255,255,.98);padding:1rem;border:solid;">
+                    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;width:50rem;justify-items:start">
+                        <h4 style="font-family: 'Playfair Display'">Id: @envio.Id</h4>
+                        <h4 style="font-family: 'Playfair Display'">Comprador: @(envio.Ventas.Usuarios.Nombre + envio.Ventas.Usuarios.Apellido_Paterno + envio.Ventas.Usuarios.Apellido_Materno)</h4>
+                        <h4 style="font-family: 'Playfair Display'"> Telefono: @envio.Ventas.Usuarios.Telefono</h4>
+                        <h4 style="font-family: 'Playfair Display'">Id Pedido: @envio.Ventas.Id</h4>
+                        <h4 style="font-family: 'Playfair Display'">Estado: Pendiente</h4>
+                    </div>
+                    <div>
+                        <br />
+                        <a style="font-family: 'Playfair Display';" href="#" class="btn btn-success text-center">Enviado</a>
+                    </div>
+                </div>
+                <br />
+            }
+        }
+    </div>
+    <br />
+</div>
+
+<br />
+
+<!-- En camino -->
+<div style="background: linear-gradient(to bottom right,rgb(0, 77, 132), rgb(93, 180, 242), rgb(255, 255, 255)); display:flex; justify-content: space-between">
+    <img style="height:50rem;max-width:40rem;margin: 3rem" src="~/Content/Imagenes/encaminoEnvios.jpg" alt="Imagen pendientes de envio" />
+    <div class="container" style="max-width:100%;background-color: rgba(255,255,255,.2);border:solid">
+        <h3 style="font-family: 'Playfair Display';font-weight:900">Envios en camino</h3>
+        <br />
+        @foreach (Envios envio in listaEnvios)
+        {
+            if (envio.Estado_Envio == 2)
+            {
+                <div style="display:flex;justify-content:space-between;max-width:100%;background-color: rgba(255,255,255,.98);padding:1rem;border:solid;">
+                    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;width:50rem;justify-items:start">
+                        <h4 style="font-family: 'Playfair Display'">Id: @envio.Id</h4>
+                        <h4 style="font-family: 'Playfair Display'">Comprador: @(envio.Ventas.Usuarios.Nombre + envio.Ventas.Usuarios.Apellido_Paterno + envio.Ventas.Usuarios.Apellido_Materno)</h4>
+                        <h4 style="font-family: 'Playfair Display'"> Telefono: @envio.Ventas.Usuarios.Telefono</h4>
+                        <h4 style="font-family: 'Playfair Display'">Id Pedido: @envio.Ventas.Id</h4>
+                        <h4 style="font-family: 'Playfair Display'">Estado: En camino</h4>
+                    </div>
+                    <div>
+                        <br />
+                        <a style="font-family: 'Playfair Display';" href="#" class="btn btn-success text-center">Entregado</a>
+                    </div>
+                </div>
+                <br />
+            }
+        }
+    </div>
+    <br />
+</div>
+
+<br />
+
+<!-- Historial -->
+<div style="background: linear-gradient(to bottom right,rgb(144, 144, 144), rgb(218, 222, 224), rgb(255, 255, 255)); display:flex; justify-content: space-between">
+    <img style="height:50rem;width:40rem;margin: 3rem" src="~/Content/Imagenes/entregadoEnvios.jpg" alt="Imagen pendientes de envio" />
+    <div class="container" style="max-width:100%;background-color: rgba(255,255,255,.2);border:solid">
+        <h3 style="font-family: 'Playfair Display';font-weight:900">Historial de envios</h3>
+        <br />
+        @foreach (Envios envio in listaEnvios)
+        {
+            if (envio.Estado_Envio == 3)
+            {
+                <div style="display:flex;justify-content:space-between;max-width:100%;background-color: rgba(255,255,255,.98);padding:1rem;border:solid;">
+                    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;width:50rem;justify-items:start">
+                        <h4 style="font-family: 'Playfair Display'">Id: @envio.Id</h4>
+                        <h4 style="font-family: 'Playfair Display'">Comprador: @(envio.Ventas.Usuarios.Nombre + envio.Ventas.Usuarios.Apellido_Paterno + envio.Ventas.Usuarios.Apellido_Materno)</h4>
+                        <h4 style="font-family: 'Playfair Display'"> Telefono: @envio.Ventas.Usuarios.Telefono</h4>
+                        <h4 style="font-family: 'Playfair Display'">Id Pedido: @envio.Ventas.Id</h4>
+                        <h4 style="font-family: 'Playfair Display'">Estado: Entregado</h4>
+                    </div>
+                    <div>
+                        <br />
+                        <a style="font-family: 'Playfair Display';" href="#" class="btn btn-info text-center">Detalles</a>
+                    </div>
+                </div>
+                <br />
+            }
+        }
+    </div>
+    <br />
+</div>
