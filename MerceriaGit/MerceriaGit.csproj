@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CarroController.cs" />
     <Compile Include="Controllers\ComprasController.cs" />
     <Compile Include="Controllers\EnviosHomeController.cs" />
     <Compile Include="Controllers\HomeComprasController.cs" />
@@ -330,6 +331,7 @@
     <Content Include="Views\Compras\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutEnvios.cshtml" />
     <Content Include="Views\EnviosHome\Index.cshtml" />
+    <Content Include="Views\Carro\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

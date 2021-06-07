@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="text-center" style="font-family: 'Playfair Display'">Carro</h2>
+    <br />
+    <p style="text-align:justify;font-family: 'Playfair Display'">Aqui se mostraran todos tus productos</p>
+    <br />
+</div>
+
+<div class="container">
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+    <br>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <tr>
+                <td>
+                    <div style="display:flex;justify-content:space-around">
+                        <img style="height:5rem;width:5rem" src="~/Content/Imagenes/singer4423.jpg" alt="Alternate Text" />
+                        <div>
+                            <h4>SINGER 4423</h4>
+                            <a href="#">Quitar</a>
+                        </div>
+                    </div>
+                </td>
+                <td>$ 6,000.00</td>
+                <td> <a class="glyphicon glyphicon-chevron-left" href="#"></a>3<a class="glyphicon glyphicon-chevron-right" href="#"></a> unidades</td>
+                <td>$ @(6000*3)</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="display:flex;justify-content:space-around">
+                        <img style="height:5rem;width:5rem" src="~/Content/Imagenes/singer4423.jpg" alt="Alternate Text" />
+                        <div>
+                            <h4>SINGER 4452</h4>
+                            <a href="#">Quitar</a>
+                        </div>
+                    </div>
+                </td>
+                <td>$ 5,000.00</td>
+                <td> <a class="glyphicon glyphicon-chevron-left" href="#"></a>5<a class="glyphicon glyphicon-chevron-right" href="#"></a> unidades</td>
+                <td>$ @(5000*5)</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td style="font-weight:700">Total</td>
+                <td style="font-weight:700">$ @((5000*5)+(6000*3))</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <p style="font-family: 'Playfair Display'">Nota: Puede realizar una busqueda rapida en la parte superior de la tabla.</p>
+</div>
+
+<br />
+
+<div style="display:flex;justify-content:space-around">
+    <a class="btn btn-info" style="width:50rem;font-size:2rem;font-family: 'Playfair Display'" href="#">Seguir comprando</a>
+    <br />
+    <a class="btn btn-success" style="width:50rem;font-size:2rem;font-family: 'Playfair Display'" href="#">Finalizar compra</a>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
