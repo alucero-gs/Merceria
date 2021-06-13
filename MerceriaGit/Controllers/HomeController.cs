@@ -15,7 +15,7 @@ namespace MerceriaGit.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Mi aplicación.";
 
             return View();
         }
