@@ -23,18 +23,36 @@
         }
 
 
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink(saludo + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @style = "color:white;font-size:1.5rem;font-family: 'Playfair Display';font-weight:700" })
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
-        </ul>
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        @Html.ActionLink(saludo + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @style = "color:white;font-size:1.5rem;font-family: 'Playfair Display';font-weight:700" })
+    </li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+    <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "color:white;font-size:1.5rem;font-family: 'Playfair Display';font-weight:400" })</li>
+    <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @style = "color:white;font-size:1.5rem;font-family: 'Playfair Display';font-weight:400" })</li>
+</ul>
     }
 }
 else
 {
+
+
+    var saludo = "";
+    DateTime hoy = DateTime.Now;
+
+    if (hoy.Hour < 12 && hoy.Hour > 5)
+    {
+        saludo = "Buenos dias";
+    }
+    else if (hoy.Hour > 12 && hoy.Hour <= 18)
+    {
+        saludo = "Buenas Tardes";
+    }
+    else
+    {
+        saludo = "Buenas noches";
+    }
 <ul class="nav navbar-nav navbar-right">
-    <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "color:white;font-size:1.5rem;font-family: 'Playfair Display';font-weight:400" })</li>
-    <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @style = "color:white;font-size:1.5rem;font-family: 'Playfair Display';font-weight:400" })</li>
+    <li style = "color:white;font-size:3rem;font-family: 'Playfair Display';font-weight:400">@saludo Enviador </li>
 </ul>
 }

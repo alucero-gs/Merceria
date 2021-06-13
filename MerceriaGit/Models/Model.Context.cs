@@ -26,11 +26,9 @@ namespace MerceriaGit.Models
         }
     
         public virtual DbSet<Categorias> Categorias { get; set; }
-        public virtual DbSet<Compras> Compras { get; set; }
         public virtual DbSet<DetalleVenta> DetalleVenta { get; set; }
         public virtual DbSet<Direcciones> Direcciones { get; set; }
         public virtual DbSet<Envios> Envios { get; set; }
-        public virtual DbSet<ImagenesProducto> ImagenesProducto { get; set; }
         public virtual DbSet<Paqueterias> Paqueterias { get; set; }
         public virtual DbSet<Productos> Productos { get; set; }
         public virtual DbSet<Subcategorias> Subcategorias { get; set; }

@@ -1,0 +1,39 @@
+﻿@model MerceriaGit.Models.Envios
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_LayoutEnvios.cshtml";
+}
+
+<h2 class="text-center">Detalles</h2>
+
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nomblre cliente</td>
+            <td>Paqueteria</td>
+            <td>N* guia</td>
+            <td>Fecha envio</td>
+            <td>Fecha entrega</td>
+            <td>Estado de envio</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="info">@Html.DisplayFor(model => model.Id)</td>
+            <td class="info">@Html.DisplayFor(model => model.Ventas.Usuarios.Nombre) @Html.DisplayFor(model => model.Ventas.Usuarios.Apellido_Paterno) @Html.DisplayFor(model => model.Ventas.Usuarios.Apellido_Materno) </td>
+            <td class="info">@Html.DisplayFor(model => model.Paqueterias.Nombre)</td>
+            <td class="info">@Html.DisplayFor(model => model.Codigo_Rastreo)</td>
+            <td class="info">@Html.DisplayFor(model => model.Fecha_Envio)</td>
+            <td class="info">@Html.DisplayFor(model => model.Fecha_Entrega)</td>
+            <td class="info">Entregado</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<p>
+    @Html.ActionLink("Regresar al home", "Index") |
+    @Html.ActionLink("Regresar a lista Historial", "HistorialEnvios") 
+</p>

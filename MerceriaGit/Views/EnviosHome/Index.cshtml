@@ -1,6 +1,6 @@
 ﻿@using MerceriaGit.Models;
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_LayoutEnvios.cshtml";
 
     var saludo = "";
@@ -55,11 +55,12 @@
                         <h4 style="font-family: 'Playfair Display'">Comprador: @(envio.Ventas.Usuarios.Nombre + envio.Ventas.Usuarios.Apellido_Paterno + envio.Ventas.Usuarios.Apellido_Materno)</h4>
                         <h4 style="font-family: 'Playfair Display'"> Telefono: @envio.Ventas.Usuarios.Telefono</h4>
                         <h4 style="font-family: 'Playfair Display'">Id Pedido: @envio.Ventas.Id</h4>
+                        <h4 style="font-family: 'Playfair Display'">Fecha de venta: @envio.Ventas.Fecha_Venta.ToShortDateString()</h4>
                         <h4 style="font-family: 'Playfair Display'">Estado: Pendiente</h4>
                     </div>
                     <div>
                         <br />
-                        <a style="font-family: 'Playfair Display';" href="#" class="btn btn-success text-center">Enviado</a>
+                        @Html.ActionLink("Enviar", "RealizarEnvio", "EnviosHome", new { @id= envio.Id}, new { @class = "btn btn-success text-center", @style = "font-family: 'Playfair Display'" })
                     </div>
                 </div>
                 <br />
@@ -87,11 +88,20 @@
                         <h4 style="font-family: 'Playfair Display'">Comprador: @(envio.Ventas.Usuarios.Nombre + envio.Ventas.Usuarios.Apellido_Paterno + envio.Ventas.Usuarios.Apellido_Materno)</h4>
                         <h4 style="font-family: 'Playfair Display'"> Telefono: @envio.Ventas.Usuarios.Telefono</h4>
                         <h4 style="font-family: 'Playfair Display'">Id Pedido: @envio.Ventas.Id</h4>
-                        <h4 style="font-family: 'Playfair Display'">Estado: En camino</h4>
-                    </div>
+                        <h4 style="font-family: 'Playfair Display'">
+                            Fecha de envio: @{
+                                DateTime a = (DateTime)envio.Fecha_Envio;} @a.ToShortDateString()
+                            </h4>
+                            <h4 style="font-family: 'Playfair Display'">
+                                Fecha estimada de entrega:  @{
+                                    DateTime b = (DateTime)envio.Fecha_Estimada_Entrega;} @b.ToShortDateString()
+                                </h4>
+                                <h4 style="font-family: 'Playfair Display'">Estado: En camino</h4>
+                            </div>
                     <div>
                         <br />
-                        <a style="font-family: 'Playfair Display';" href="#" class="btn btn-success text-center">Entregado</a>
+                        <br />
+                        @Html.ActionLink("Marcar Entrega", "RealizarEntrega", "EnviosHome", new { @id = envio.Id }, new { @class = "btn btn-success text-center", @style = "font-family: 'Playfair Display'" })
                     </div>
                 </div>
                 <br />
@@ -119,11 +129,15 @@
                         <h4 style="font-family: 'Playfair Display'">Comprador: @(envio.Ventas.Usuarios.Nombre + envio.Ventas.Usuarios.Apellido_Paterno + envio.Ventas.Usuarios.Apellido_Materno)</h4>
                         <h4 style="font-family: 'Playfair Display'"> Telefono: @envio.Ventas.Usuarios.Telefono</h4>
                         <h4 style="font-family: 'Playfair Display'">Id Pedido: @envio.Ventas.Id</h4>
+                        <h4 style="font-family: 'Playfair Display'">
+                            Fecha de entrega: @{
+                                DateTime c = (DateTime)envio.Fecha_Entrega;} @c.ToShortDateString()
+                            </h4>
                         <h4 style="font-family: 'Playfair Display'">Estado: Entregado</h4>
                     </div>
                     <div>
                         <br />
-                        <a style="font-family: 'Playfair Display';" href="#" class="btn btn-info text-center">Detalles</a>
+                        @Html.ActionLink("Detalles", "Detalles", "EnviosHome", new { @id = envio.Id }, new { @class = "btn btn-info text-center", @style = "font-family: 'Playfair Display'" })
                     </div>
                 </div>
                 <br />

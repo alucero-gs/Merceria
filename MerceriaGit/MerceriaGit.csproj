@@ -171,9 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarroController.cs" />
-    <Compile Include="Controllers\ComprasController.cs" />
     <Compile Include="Controllers\EnviosHomeController.cs" />
-    <Compile Include="Controllers\HomeComprasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -181,9 +179,6 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Categorias.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Compras.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DetalleVenta.cs">
@@ -196,9 +191,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ImagenesProducto.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
@@ -322,16 +314,14 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutCompras.cshtml" />
-    <Content Include="Views\HomeCompras\Index.cshtml" />
     <Content Include="Views\Shared\_LoginPartialCompras.cshtml" />
-    <Content Include="Views\Compras\Create.cshtml" />
-    <Content Include="Views\Compras\Delete.cshtml" />
-    <Content Include="Views\Compras\Details.cshtml" />
-    <Content Include="Views\Compras\Edit.cshtml" />
-    <Content Include="Views\Compras\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutEnvios.cshtml" />
     <Content Include="Views\EnviosHome\Index.cshtml" />
     <Content Include="Views\Carro\Index.cshtml" />
+    <Content Include="Views\EnviosHome\EnviosPendientes.cshtml" />
+    <Content Include="Views\EnviosHome\EnviosEnCamino.cshtml" />
+    <Content Include="Views\EnviosHome\HistorialEnvios.cshtml" />
+    <Content Include="Views\EnviosHome\Detalles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

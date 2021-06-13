@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MerceriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MerceriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categorias">
           <Key>
             <PropertyRef Name="Id" />
@@ -14,23 +14,11 @@
           <Property Name="Descripcion" Type="text" Nullable="false" />
           <Property Name="Estado" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Compras">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Id_Producto" Type="int" Nullable="false" />
-          <Property Name="Cantidad" Type="int" Nullable="false" />
-          <Property Name="Subtotal" Type="money" Nullable="false" />
-          <Property Name="IVA" Type="money" Nullable="false" />
-          <Property Name="Total" Type="money" Nullable="false" />
-          <Property Name="Estado" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="DetalleVenta">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Venta" Type="int" Nullable="false" />
           <Property Name="Id_Producto" Type="int" Nullable="false" />
           <Property Name="Cantidad" Type="int" Nullable="false" />
@@ -41,7 +29,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Usuario" Type="int" Nullable="false" />
           <Property Name="Calle" Type="nchar" MaxLength="100" Nullable="false" />
           <Property Name="Entidad" Type="nchar" MaxLength="30" Nullable="false" />
@@ -56,32 +44,22 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Paqueteria" Type="int" Nullable="false" />
           <Property Name="Id_Venta" Type="int" Nullable="false" />
           <Property Name="Codigo_Rastreo" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Fecha_Envio" Type="date" Nullable="false" />
-          <Property Name="Fecha_Estimada_Entrega" Type="date" Nullable="false" />
+          <Property Name="Fecha_Envio" Type="date" />
+          <Property Name="Fecha_Estimada_Entrega" Type="date" />
           <Property Name="Estado_Envio" Type="int" Nullable="false" />
           <Property Name="Fecha_Entrega" Type="date" />
-          <Property Name="Estado" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ImagenesProducto">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Id_Producto" Type="int" Nullable="false" />
           <Property Name="Estado" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Paqueterias">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="Razon_Social" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Telefono" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Correo" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Direccion" Type="text" Nullable="false" />
@@ -95,6 +73,7 @@
           <Property Name="Id_Subcategoria" Type="int" Nullable="false" />
           <Property Name="Nombre" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Descripcion" Type="text" Nullable="false" />
+          <Property Name="Imagen" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Precio_Compra" Type="money" Nullable="false" />
           <Property Name="Precio_Venta" Type="money" Nullable="false" />
           <Property Name="Existencia" Type="int" Nullable="false" />
@@ -104,7 +83,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Categoria" Type="int" Nullable="false" />
           <Property Name="Nombre" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="Descripcion" Type="text" Nullable="false" />
@@ -114,7 +93,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Usuario" Type="int" Nullable="false" />
           <Property Name="Numero_Tarjeta" Type="nchar" MaxLength="16" Nullable="false" />
           <Property Name="Mes_Vencimiento" Type="nchar" MaxLength="3" Nullable="false" />
@@ -125,7 +104,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="Descripcion" Type="text" Nullable="false" />
           <Property Name="Estado" Type="int" Nullable="false" />
@@ -134,7 +113,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nchar" MaxLength="30" />
           <Property Name="Apellido_Paterno" Type="nchar" MaxLength="30" />
           <Property Name="Apellido_Materno" Type="nchar" MaxLength="30" Nullable="false" />
@@ -142,18 +121,17 @@
           <Property Name="Telefono" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Correo" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Id_TipoUsuario" Type="int" Nullable="false" />
-          <Property Name="Username" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="text" Nullable="false" />
           <Property Name="Estado" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Ventas">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Cantidad" Type="int" Nullable="false" />
           <Property Name="Subtotal" Type="money" Nullable="false" />
           <Property Name="IVA" Type="money" Nullable="false" />
+          <Property Name="Fecha_Venta" Type="date" Nullable="false" />
           <Property Name="Total" Type="money" Nullable="false" />
           <Property Name="Id_Usuario" Type="int" Nullable="false" />
           <Property Name="Estado" Type="int" Nullable="false" />
@@ -215,30 +193,6 @@
             </Principal>
             <Dependent Role="Envios">
               <PropertyRef Name="Id_Venta" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Producto_Compra">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
-          <End Role="Compras" Type="Self.Compras" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Productos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Compras">
-              <PropertyRef Name="Id_Producto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ProductoImagen">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
-          <End Role="ImagenesProducto" Type="Self.ImagenesProducto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Productos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ImagenesProducto">
-              <PropertyRef Name="Id_Producto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -304,11 +258,9 @@
         </Association>
         <EntityContainer Name="MerceriaModelStoreContainer">
           <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Compras" EntityType="Self.Compras" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Direcciones" EntityType="Self.Direcciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Envios" EntityType="Self.Envios" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ImagenesProducto" EntityType="Self.ImagenesProducto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Paqueterias" EntityType="Self.Paqueterias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subcategorias" EntityType="Self.Subcategorias" Schema="dbo" store:Type="Tables" />
@@ -336,14 +288,6 @@
             <End Role="Ventas" EntitySet="Ventas" />
             <End Role="Envios" EntitySet="Envios" />
           </AssociationSet>
-          <AssociationSet Name="fk_Producto_Compra" Association="Self.fk_Producto_Compra">
-            <End Role="Productos" EntitySet="Productos" />
-            <End Role="Compras" EntitySet="Compras" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ProductoImagen" Association="Self.fk_ProductoImagen">
-            <End Role="Productos" EntitySet="Productos" />
-            <End Role="ImagenesProducto" EntitySet="ImagenesProducto" />
-          </AssociationSet>
           <AssociationSet Name="fk_Subcategorias" Association="Self.fk_Subcategorias">
             <End Role="Subcategorias" EntitySet="Subcategorias" />
             <End Role="Productos" EntitySet="Productos" />
@@ -365,101 +309,129 @@
             <End Role="Ventas" EntitySet="Ventas" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MerceriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="contextTienda" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categorias" EntityType="MerceriaModel.Categorias" />
+          <EntitySet Name="DetalleVenta" EntityType="MerceriaModel.DetalleVenta" />
+          <EntitySet Name="Direcciones" EntityType="MerceriaModel.Direcciones" />
+          <EntitySet Name="Envios" EntityType="MerceriaModel.Envios" />
+          <EntitySet Name="Paqueterias" EntityType="MerceriaModel.Paqueterias" />
+          <EntitySet Name="Productos" EntityType="MerceriaModel.Productos" />
+          <EntitySet Name="Subcategorias" EntityType="MerceriaModel.Subcategorias" />
+          <EntitySet Name="Tarjetas" EntityType="MerceriaModel.Tarjetas" />
+          <EntitySet Name="TipoUsuario" EntityType="MerceriaModel.TipoUsuario" />
+          <EntitySet Name="Usuarios" EntityType="MerceriaModel.Usuarios" />
+          <EntitySet Name="Ventas" EntityType="MerceriaModel.Ventas" />
+          <AssociationSet Name="fk_Categorias" Association="MerceriaModel.fk_Categorias">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="Subcategorias" EntitySet="Subcategorias" />
+          </AssociationSet>
+          <AssociationSet Name="fk_DetalleVenta" Association="MerceriaModel.fk_DetalleVenta">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="DetalleVenta" EntitySet="DetalleVenta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_DetalleVentaProducto" Association="MerceriaModel.fk_DetalleVentaProducto">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetalleVenta" EntitySet="DetalleVenta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Usuario" Association="MerceriaModel.fk_Usuario">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Direcciones" EntitySet="Direcciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EnviosPaqueteria" Association="MerceriaModel.fk_EnviosPaqueteria">
+            <End Role="Paqueterias" EntitySet="Paqueterias" />
+            <End Role="Envios" EntitySet="Envios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EnviosVenta" Association="MerceriaModel.fk_EnviosVenta">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Envios" EntitySet="Envios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Subcategorias" Association="MerceriaModel.fk_Subcategorias">
+            <End Role="Subcategorias" EntitySet="Subcategorias" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Usuario_Tarjeta" Association="MerceriaModel.fk_Usuario_Tarjeta">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tarjetas" EntitySet="Tarjetas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TipoUsuario" Association="MerceriaModel.fk_TipoUsuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UsuarioVenta" Association="MerceriaModel.fk_UsuarioVenta">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Categorias">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Subcategorias" Relationship="Self.fk_Categorias" FromRole="Categorias" ToRole="Subcategorias" />
-        </EntityType>
-        <EntityType Name="Compras">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Id_Producto" Type="Int32" Nullable="false" />
-          <Property Name="Cantidad" Type="Int32" Nullable="false" />
-          <Property Name="Subtotal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="IVA" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Productos" Relationship="Self.fk_Producto_Compra" FromRole="Compras" ToRole="Productos" />
+          <NavigationProperty Name="Subcategorias" Relationship="MerceriaModel.fk_Categorias" FromRole="Categorias" ToRole="Subcategorias" />
         </EntityType>
         <EntityType Name="DetalleVenta">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_Venta" Type="Int32" Nullable="false" />
           <Property Name="Id_Producto" Type="Int32" Nullable="false" />
           <Property Name="Cantidad" Type="Int32" Nullable="false" />
-          <Property Name="Subtotal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Subtotal" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Ventas" Relationship="Self.fk_DetalleVenta" FromRole="DetalleVenta" ToRole="Ventas" />
-          <NavigationProperty Name="Productos" Relationship="Self.fk_DetalleVentaProducto" FromRole="DetalleVenta" ToRole="Productos" />
+          <NavigationProperty Name="Ventas" Relationship="MerceriaModel.fk_DetalleVenta" FromRole="DetalleVenta" ToRole="Ventas" />
+          <NavigationProperty Name="Productos" Relationship="MerceriaModel.fk_DetalleVentaProducto" FromRole="DetalleVenta" ToRole="Productos" />
         </EntityType>
         <EntityType Name="Direcciones">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
-          <Property Name="Calle" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Entidad" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Municipio" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Calle" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Entidad" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Municipio" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="Numero_Exterior" Type="Int32" Nullable="false" />
           <Property Name="Numero_Interior" Type="Int32" Nullable="false" />
           <Property Name="Codigo_Postal" Type="Int32" Nullable="false" />
-          <Property Name="Referencias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Referencias" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.fk_Usuario" FromRole="Direcciones" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios" Relationship="MerceriaModel.fk_Usuario" FromRole="Direcciones" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Envios">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_Paqueteria" Type="Int32" Nullable="false" />
           <Property Name="Id_Venta" Type="Int32" Nullable="false" />
-          <Property Name="Codigo_Rastreo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Fecha_Envio" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Fecha_Estimada_Entrega" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Codigo_Rastreo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_Envio" Type="DateTime" Precision="0" />
+          <Property Name="Fecha_Estimada_Entrega" Type="DateTime" Precision="0" />
           <Property Name="Estado_Envio" Type="Int32" Nullable="false" />
           <Property Name="Fecha_Entrega" Type="DateTime" Precision="0" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Paqueterias" Relationship="Self.fk_EnviosPaqueteria" FromRole="Envios" ToRole="Paqueterias" />
-          <NavigationProperty Name="Ventas" Relationship="Self.fk_EnviosVenta" FromRole="Envios" ToRole="Ventas" />
-        </EntityType>
-        <EntityType Name="ImagenesProducto">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Id_Producto" Type="Int32" Nullable="false" />
-          <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Productos" Relationship="Self.fk_ProductoImagen" FromRole="ImagenesProducto" ToRole="Productos" />
+          <NavigationProperty Name="Paqueterias" Relationship="MerceriaModel.fk_EnviosPaqueteria" FromRole="Envios" ToRole="Paqueterias" />
+          <NavigationProperty Name="Ventas" Relationship="MerceriaModel.fk_EnviosVenta" FromRole="Envios" ToRole="Ventas" />
         </EntityType>
         <EntityType Name="Paqueterias">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Razon_Social" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Envios" Relationship="Self.fk_EnviosPaqueteria" FromRole="Paqueterias" ToRole="Envios" />
+          <NavigationProperty Name="Envios" Relationship="MerceriaModel.fk_EnviosPaqueteria" FromRole="Paqueterias" ToRole="Envios" />
         </EntityType>
         <EntityType Name="Productos">
           <Key>
@@ -467,89 +439,87 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Id_Subcategoria" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Precio_Compra" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Precio_Venta" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Imagen" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Precio_Compra" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Precio_Venta" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="Existencia" Type="Int32" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Compras" Relationship="Self.fk_Producto_Compra" FromRole="Productos" ToRole="Compras" />
-          <NavigationProperty Name="DetalleVenta" Relationship="Self.fk_DetalleVentaProducto" FromRole="Productos" ToRole="DetalleVenta" />
-          <NavigationProperty Name="ImagenesProducto" Relationship="Self.fk_ProductoImagen" FromRole="Productos" ToRole="ImagenesProducto" />
-          <NavigationProperty Name="Subcategorias" Relationship="Self.fk_Subcategorias" FromRole="Productos" ToRole="Subcategorias" />
+          <NavigationProperty Name="DetalleVenta" Relationship="MerceriaModel.fk_DetalleVentaProducto" FromRole="Productos" ToRole="DetalleVenta" />
+          <NavigationProperty Name="Subcategorias" Relationship="MerceriaModel.fk_Subcategorias" FromRole="Productos" ToRole="Subcategorias" />
         </EntityType>
         <EntityType Name="Subcategorias">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_Categoria" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Categorias" Relationship="Self.fk_Categorias" FromRole="Subcategorias" ToRole="Categorias" />
-          <NavigationProperty Name="Productos" Relationship="Self.fk_Subcategorias" FromRole="Subcategorias" ToRole="Productos" />
+          <NavigationProperty Name="Categorias" Relationship="MerceriaModel.fk_Categorias" FromRole="Subcategorias" ToRole="Categorias" />
+          <NavigationProperty Name="Productos" Relationship="MerceriaModel.fk_Subcategorias" FromRole="Subcategorias" ToRole="Productos" />
         </EntityType>
         <EntityType Name="Tarjetas">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
-          <Property Name="Numero_Tarjeta" Type="String" MaxLength="16" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Mes_Vencimiento" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Anio_Vencimiento" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Numero_Tarjeta" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="Mes_Vencimiento" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Anio_Vencimiento" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.fk_Usuario_Tarjeta" FromRole="Tarjetas" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios" Relationship="MerceriaModel.fk_Usuario_Tarjeta" FromRole="Tarjetas" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="TipoUsuario">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.fk_TipoUsuario" FromRole="TipoUsuario" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios" Relationship="MerceriaModel.fk_TipoUsuario" FromRole="TipoUsuario" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="Apellido_Paterno" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="Apellido_Materno" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Apellido_Materno" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="Fecha_Nacimiento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Id_TipoUsuario" Type="Int32" Nullable="false" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Estado" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Direcciones" Relationship="Self.fk_Usuario" FromRole="Usuarios" ToRole="Direcciones" />
-          <NavigationProperty Name="Tarjetas" Relationship="Self.fk_Usuario_Tarjeta" FromRole="Usuarios" ToRole="Tarjetas" />
-          <NavigationProperty Name="TipoUsuario" Relationship="Self.fk_TipoUsuario" FromRole="Usuarios" ToRole="TipoUsuario" />
-          <NavigationProperty Name="Ventas" Relationship="Self.fk_UsuarioVenta" FromRole="Usuarios" ToRole="Ventas" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Direcciones" Relationship="MerceriaModel.fk_Usuario" FromRole="Usuarios" ToRole="Direcciones" />
+          <NavigationProperty Name="Tarjetas" Relationship="MerceriaModel.fk_Usuario_Tarjeta" FromRole="Usuarios" ToRole="Tarjetas" />
+          <NavigationProperty Name="TipoUsuario" Relationship="MerceriaModel.fk_TipoUsuario" FromRole="Usuarios" ToRole="TipoUsuario" />
+          <NavigationProperty Name="Ventas" Relationship="MerceriaModel.fk_UsuarioVenta" FromRole="Usuarios" ToRole="Ventas" />
         </EntityType>
         <EntityType Name="Ventas">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Cantidad" Type="Int32" Nullable="false" />
-          <Property Name="Subtotal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="IVA" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Subtotal" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="IVA" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Fecha_Venta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="DetalleVenta" Relationship="Self.fk_DetalleVenta" FromRole="Ventas" ToRole="DetalleVenta" />
-          <NavigationProperty Name="Envios" Relationship="Self.fk_EnviosVenta" FromRole="Ventas" ToRole="Envios" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.fk_UsuarioVenta" FromRole="Ventas" ToRole="Usuarios" />
+          <NavigationProperty Name="DetalleVenta" Relationship="MerceriaModel.fk_DetalleVenta" FromRole="Ventas" ToRole="DetalleVenta" />
+          <NavigationProperty Name="Envios" Relationship="MerceriaModel.fk_EnviosVenta" FromRole="Ventas" ToRole="Envios" />
+          <NavigationProperty Name="Usuarios" Relationship="MerceriaModel.fk_UsuarioVenta" FromRole="Ventas" ToRole="Usuarios" />
         </EntityType>
         <Association Name="fk_Categorias">
-          <End Role="Categorias" Type="Self.Categorias" Multiplicity="1" />
-          <End Role="Subcategorias" Type="Self.Subcategorias" Multiplicity="*" />
+          <End Type="MerceriaModel.Categorias" Role="Categorias" Multiplicity="1" />
+          <End Type="MerceriaModel.Subcategorias" Role="Subcategorias" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categorias">
               <PropertyRef Name="Id" />
@@ -559,21 +529,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Producto_Compra">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
-          <End Role="Compras" Type="Self.Compras" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Productos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Compras">
-              <PropertyRef Name="Id_Producto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_DetalleVenta">
-          <End Role="Ventas" Type="Self.Ventas" Multiplicity="1" />
-          <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
+          <End Type="MerceriaModel.Ventas" Role="Ventas" Multiplicity="1" />
+          <End Type="MerceriaModel.DetalleVenta" Role="DetalleVenta" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Ventas">
               <PropertyRef Name="Id" />
@@ -584,8 +542,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_DetalleVentaProducto">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
-          <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
+          <End Type="MerceriaModel.Productos" Role="Productos" Multiplicity="1" />
+          <End Type="MerceriaModel.DetalleVenta" Role="DetalleVenta" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Productos">
               <PropertyRef Name="Id" />
@@ -596,8 +554,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Usuario">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-          <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="*" />
+          <End Type="MerceriaModel.Usuarios" Role="Usuarios" Multiplicity="1" />
+          <End Type="MerceriaModel.Direcciones" Role="Direcciones" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
               <PropertyRef Name="Id" />
@@ -608,8 +566,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_EnviosPaqueteria">
-          <End Role="Paqueterias" Type="Self.Paqueterias" Multiplicity="1" />
-          <End Role="Envios" Type="Self.Envios" Multiplicity="*" />
+          <End Type="MerceriaModel.Paqueterias" Role="Paqueterias" Multiplicity="1" />
+          <End Type="MerceriaModel.Envios" Role="Envios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Paqueterias">
               <PropertyRef Name="Id" />
@@ -620,8 +578,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_EnviosVenta">
-          <End Role="Ventas" Type="Self.Ventas" Multiplicity="1" />
-          <End Role="Envios" Type="Self.Envios" Multiplicity="*" />
+          <End Type="MerceriaModel.Ventas" Role="Ventas" Multiplicity="1" />
+          <End Type="MerceriaModel.Envios" Role="Envios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Ventas">
               <PropertyRef Name="Id" />
@@ -631,21 +589,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_ProductoImagen">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
-          <End Role="ImagenesProducto" Type="Self.ImagenesProducto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Productos">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ImagenesProducto">
-              <PropertyRef Name="Id_Producto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_Subcategorias">
-          <End Role="Subcategorias" Type="Self.Subcategorias" Multiplicity="1" />
-          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <End Type="MerceriaModel.Subcategorias" Role="Subcategorias" Multiplicity="1" />
+          <End Type="MerceriaModel.Productos" Role="Productos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Subcategorias">
               <PropertyRef Name="Id" />
@@ -656,8 +602,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Usuario_Tarjeta">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-          <End Role="Tarjetas" Type="Self.Tarjetas" Multiplicity="*" />
+          <End Type="MerceriaModel.Usuarios" Role="Usuarios" Multiplicity="1" />
+          <End Type="MerceriaModel.Tarjetas" Role="Tarjetas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
               <PropertyRef Name="Id" />
@@ -668,8 +614,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_TipoUsuario">
-          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <End Type="MerceriaModel.TipoUsuario" Role="TipoUsuario" Multiplicity="1" />
+          <End Type="MerceriaModel.Usuarios" Role="Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipoUsuario">
               <PropertyRef Name="Id" />
@@ -680,8 +626,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_UsuarioVenta">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <End Type="MerceriaModel.Usuarios" Role="Usuarios" Multiplicity="1" />
+          <End Type="MerceriaModel.Ventas" Role="Ventas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
               <PropertyRef Name="Id" />
@@ -691,69 +637,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="contextTienda" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Categorias" EntityType="Self.Categorias" />
-          <EntitySet Name="Compras" EntityType="Self.Compras" />
-          <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" />
-          <EntitySet Name="Direcciones" EntityType="Self.Direcciones" />
-          <EntitySet Name="Envios" EntityType="Self.Envios" />
-          <EntitySet Name="ImagenesProducto" EntityType="Self.ImagenesProducto" />
-          <EntitySet Name="Paqueterias" EntityType="Self.Paqueterias" />
-          <EntitySet Name="Productos" EntityType="Self.Productos" />
-          <EntitySet Name="Subcategorias" EntityType="Self.Subcategorias" />
-          <EntitySet Name="Tarjetas" EntityType="Self.Tarjetas" />
-          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" />
-          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
-          <EntitySet Name="Ventas" EntityType="Self.Ventas" />
-          <AssociationSet Name="fk_Categorias" Association="Self.fk_Categorias">
-            <End Role="Categorias" EntitySet="Categorias" />
-            <End Role="Subcategorias" EntitySet="Subcategorias" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Producto_Compra" Association="Self.fk_Producto_Compra">
-            <End Role="Productos" EntitySet="Productos" />
-            <End Role="Compras" EntitySet="Compras" />
-          </AssociationSet>
-          <AssociationSet Name="fk_DetalleVenta" Association="Self.fk_DetalleVenta">
-            <End Role="Ventas" EntitySet="Ventas" />
-            <End Role="DetalleVenta" EntitySet="DetalleVenta" />
-          </AssociationSet>
-          <AssociationSet Name="fk_DetalleVentaProducto" Association="Self.fk_DetalleVentaProducto">
-            <End Role="Productos" EntitySet="Productos" />
-            <End Role="DetalleVenta" EntitySet="DetalleVenta" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Usuario" Association="Self.fk_Usuario">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Direcciones" EntitySet="Direcciones" />
-          </AssociationSet>
-          <AssociationSet Name="fk_EnviosPaqueteria" Association="Self.fk_EnviosPaqueteria">
-            <End Role="Paqueterias" EntitySet="Paqueterias" />
-            <End Role="Envios" EntitySet="Envios" />
-          </AssociationSet>
-          <AssociationSet Name="fk_EnviosVenta" Association="Self.fk_EnviosVenta">
-            <End Role="Ventas" EntitySet="Ventas" />
-            <End Role="Envios" EntitySet="Envios" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ProductoImagen" Association="Self.fk_ProductoImagen">
-            <End Role="Productos" EntitySet="Productos" />
-            <End Role="ImagenesProducto" EntitySet="ImagenesProducto" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Subcategorias" Association="Self.fk_Subcategorias">
-            <End Role="Subcategorias" EntitySet="Subcategorias" />
-            <End Role="Productos" EntitySet="Productos" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Usuario_Tarjeta" Association="Self.fk_Usuario_Tarjeta">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Tarjetas" EntitySet="Tarjetas" />
-          </AssociationSet>
-          <AssociationSet Name="fk_TipoUsuario" Association="Self.fk_TipoUsuario">
-            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
-          <AssociationSet Name="fk_UsuarioVenta" Association="Self.fk_UsuarioVenta">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Ventas" EntitySet="Ventas" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -763,166 +646,142 @@
           <EntitySetMapping Name="Categorias">
             <EntityTypeMapping TypeName="MerceriaModel.Categorias">
               <MappingFragment StoreEntitySet="Categorias">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Compras">
-            <EntityTypeMapping TypeName="MerceriaModel.Compras">
-              <MappingFragment StoreEntitySet="Compras">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
-                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
-                <ScalarProperty Name="IVA" ColumnName="IVA" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DetalleVenta">
             <EntityTypeMapping TypeName="MerceriaModel.DetalleVenta">
               <MappingFragment StoreEntitySet="DetalleVenta">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_Venta" ColumnName="Id_Venta" />
-                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
-                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+                <ScalarProperty Name="Id_Venta" ColumnName="Id_Venta" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Direcciones">
             <EntityTypeMapping TypeName="MerceriaModel.Direcciones">
               <MappingFragment StoreEntitySet="Direcciones">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
-                <ScalarProperty Name="Calle" ColumnName="Calle" />
-                <ScalarProperty Name="Entidad" ColumnName="Entidad" />
-                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
-                <ScalarProperty Name="Numero_Exterior" ColumnName="Numero_Exterior" />
-                <ScalarProperty Name="Numero_Interior" ColumnName="Numero_Interior" />
-                <ScalarProperty Name="Codigo_Postal" ColumnName="Codigo_Postal" />
-                <ScalarProperty Name="Referencias" ColumnName="Referencias" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Referencias" ColumnName="Referencias" />
+                <ScalarProperty Name="Codigo_Postal" ColumnName="Codigo_Postal" />
+                <ScalarProperty Name="Numero_Interior" ColumnName="Numero_Interior" />
+                <ScalarProperty Name="Numero_Exterior" ColumnName="Numero_Exterior" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Entidad" ColumnName="Entidad" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Envios">
             <EntityTypeMapping TypeName="MerceriaModel.Envios">
               <MappingFragment StoreEntitySet="Envios">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_Paqueteria" ColumnName="Id_Paqueteria" />
-                <ScalarProperty Name="Id_Venta" ColumnName="Id_Venta" />
-                <ScalarProperty Name="Codigo_Rastreo" ColumnName="Codigo_Rastreo" />
-                <ScalarProperty Name="Fecha_Envio" ColumnName="Fecha_Envio" />
-                <ScalarProperty Name="Fecha_Estimada_Entrega" ColumnName="Fecha_Estimada_Entrega" />
-                <ScalarProperty Name="Estado_Envio" ColumnName="Estado_Envio" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Fecha_Entrega" ColumnName="Fecha_Entrega" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ImagenesProducto">
-            <EntityTypeMapping TypeName="MerceriaModel.ImagenesProducto">
-              <MappingFragment StoreEntitySet="ImagenesProducto">
+                <ScalarProperty Name="Estado_Envio" ColumnName="Estado_Envio" />
+                <ScalarProperty Name="Fecha_Estimada_Entrega" ColumnName="Fecha_Estimada_Entrega" />
+                <ScalarProperty Name="Fecha_Envio" ColumnName="Fecha_Envio" />
+                <ScalarProperty Name="Codigo_Rastreo" ColumnName="Codigo_Rastreo" />
+                <ScalarProperty Name="Id_Venta" ColumnName="Id_Venta" />
+                <ScalarProperty Name="Id_Paqueteria" ColumnName="Id_Paqueteria" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Paqueterias">
             <EntityTypeMapping TypeName="MerceriaModel.Paqueterias">
               <MappingFragment StoreEntitySet="Paqueterias">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Razon_Social" ColumnName="Razon_Social" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Productos">
             <EntityTypeMapping TypeName="MerceriaModel.Productos">
               <MappingFragment StoreEntitySet="Productos">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_Subcategoria" ColumnName="Id_Subcategoria" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Precio_Compra" ColumnName="Precio_Compra" />
-                <ScalarProperty Name="Precio_Venta" ColumnName="Precio_Venta" />
-                <ScalarProperty Name="Existencia" ColumnName="Existencia" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Existencia" ColumnName="Existencia" />
+                <ScalarProperty Name="Precio_Venta" ColumnName="Precio_Venta" />
+                <ScalarProperty Name="Precio_Compra" ColumnName="Precio_Compra" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_Subcategoria" ColumnName="Id_Subcategoria" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Subcategorias">
             <EntityTypeMapping TypeName="MerceriaModel.Subcategorias">
               <MappingFragment StoreEntitySet="Subcategorias">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_Categoria" ColumnName="Id_Categoria" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_Categoria" ColumnName="Id_Categoria" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tarjetas">
             <EntityTypeMapping TypeName="MerceriaModel.Tarjetas">
               <MappingFragment StoreEntitySet="Tarjetas">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
-                <ScalarProperty Name="Numero_Tarjeta" ColumnName="Numero_Tarjeta" />
-                <ScalarProperty Name="Mes_Vencimiento" ColumnName="Mes_Vencimiento" />
-                <ScalarProperty Name="Anio_Vencimiento" ColumnName="Anio_Vencimiento" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Anio_Vencimiento" ColumnName="Anio_Vencimiento" />
+                <ScalarProperty Name="Mes_Vencimiento" ColumnName="Mes_Vencimiento" />
+                <ScalarProperty Name="Numero_Tarjeta" ColumnName="Numero_Tarjeta" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TipoUsuario">
             <EntityTypeMapping TypeName="MerceriaModel.TipoUsuario">
               <MappingFragment StoreEntitySet="TipoUsuario">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
             <EntityTypeMapping TypeName="MerceriaModel.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Apellido_Paterno" ColumnName="Apellido_Paterno" />
-                <ScalarProperty Name="Apellido_Materno" ColumnName="Apellido_Materno" />
-                <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Id_TipoUsuario" ColumnName="Id_TipoUsuario" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Id_TipoUsuario" ColumnName="Id_TipoUsuario" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+                <ScalarProperty Name="Apellido_Materno" ColumnName="Apellido_Materno" />
+                <ScalarProperty Name="Apellido_Paterno" ColumnName="Apellido_Paterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ventas">
             <EntityTypeMapping TypeName="MerceriaModel.Ventas">
               <MappingFragment StoreEntitySet="Ventas">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
-                <ScalarProperty Name="IVA" ColumnName="IVA" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Fecha_Venta" ColumnName="Fecha_Venta" />
+                <ScalarProperty Name="IVA" ColumnName="IVA" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

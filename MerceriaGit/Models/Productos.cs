@@ -17,26 +17,21 @@ namespace MerceriaGit.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Productos()
         {
-            this.Compras = new HashSet<Compras>();
             this.DetalleVenta = new HashSet<DetalleVenta>();
-            this.ImagenesProducto = new HashSet<ImagenesProducto>();
         }
     
         public int Id { get; set; }
         public int Id_Subcategoria { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+        public string Imagen { get; set; }
         public decimal Precio_Compra { get; set; }
         public decimal Precio_Venta { get; set; }
         public int Existencia { get; set; }
         public int Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Compras> Compras { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ImagenesProducto> ImagenesProducto { get; set; }
         public virtual Subcategorias Subcategorias { get; set; }
     }
 }

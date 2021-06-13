@@ -25,6 +25,7 @@ namespace MerceriaGit.Models
         public int Cantidad { get; set; }
         public decimal Subtotal { get; set; }
         public decimal IVA { get; set; }
+        public System.DateTime Fecha_Venta { get; set; }
         public decimal Total { get; set; }
         public int Id_Usuario { get; set; }
         public int Estado { get; set; }

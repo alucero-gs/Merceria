@@ -30,8 +30,6 @@ namespace MerceriaGit.Models
         public string Telefono { get; set; }
         public string Correo { get; set; }
         public int Id_TipoUsuario { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
         public string Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

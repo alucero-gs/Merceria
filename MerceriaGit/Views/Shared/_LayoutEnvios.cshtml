@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title Compras</title>
+    <title>@ViewBag.Title Envios</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -25,15 +25,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Merceria", "Index", "HomeCompras", new { area = "" }, new { @class = "navbar-brand", @style = "color:white; font-size:4rem;font-family: 'Playfair Display';font-style:italic" })
+                @Html.ActionLink("Merceria", "Index", "EnviosHome", new { area = "" }, new { @class = "navbar-brand", @style = "color:white; font-size:4rem;font-family: 'Playfair Display';font-style:italic" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown" style="color: white; font-size: 2rem; font-family: 'Playfair Display'">Envios <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Agregar", "Create", "producto", null, new { id = "add", @style = "font-size:1.5rem;font-family: 'Playfair Display';font-weight:700" })</li>
-                            <li>@Html.ActionLink("Ver Productos", "Index", "producto", null, new { id = "edit", @style = "font-size:1.5rem;font-family: 'Playfair Display';font-weight:700" })</li>
+                            <li>@Html.ActionLink("Lista Envios Pendientes", "EnviosPendientes", "EnviosHome", null, new {  @style = "font-size:1.5rem;font-family: 'Playfair Display';font-weight:700" })</li>
+                            <li>@Html.ActionLink("Lista Envios En Camino", "EnviosEnCamino", "EnviosHome", null, new {  @style = "font-size:1.5rem;font-family: 'Playfair Display';font-weight:700" })</li>
+                            <li>@Html.ActionLink("Lista Historial De Envios", "HistorialEnvios", "EnviosHome", null, new {  @style = "font-size:1.5rem;font-family: 'Playfair Display';font-weight:700" })</li>
 
                         </ul>
                     </li>
@@ -41,8 +42,8 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown" style="color: white; font-size: 2rem; font-family: 'Playfair Display'">Paqueteria <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Realizar compra", "Create", "Compras", null, new { id = "add", @style = "font-size:1.5rem;font-family: 'Playfair Display';font-weight:700" })</li>
-                            <li>@Html.ActionLink("Ver Compras", "Index", "Compras", null, new { id = "edit", @style = "font-size:1.5rem;font-family: 'Playfair Display';font-weight:700" })</li>
+                            <li>@Html.ActionLink("Agregar Paqueteria", "Create", "Compras", null, new { id = "add", @style = "font-size:1.5rem;font-family: 'Playfair Display';font-weight:700" })</li>
+                            <li>@Html.ActionLink("Ver lista paqueterias", "Index", "Compras", null, new { id = "edit", @style = "font-size:1.5rem;font-family: 'Playfair Display';font-weight:700" })</li>
 
                         </ul>
                     </li>

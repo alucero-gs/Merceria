@@ -18,8 +18,8 @@ namespace MerceriaGit.Models
         public int Id_Paqueteria { get; set; }
         public int Id_Venta { get; set; }
         public string Codigo_Rastreo { get; set; }
-        public System.DateTime Fecha_Envio { get; set; }
-        public System.DateTime Fecha_Estimada_Entrega { get; set; }
+        public Nullable<System.DateTime> Fecha_Envio { get; set; }
+        public Nullable<System.DateTime> Fecha_Estimada_Entrega { get; set; }
         public int Estado_Envio { get; set; }
         public Nullable<System.DateTime> Fecha_Entrega { get; set; }
         public int Estado { get; set; }

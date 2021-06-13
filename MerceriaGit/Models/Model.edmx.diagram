@@ -4,32 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d1b0e495f62e4e2c8cb2c8acc298a42e" Name="Diagram1">
-        <EntityTypeShape EntityType="MerceriaModel.Categorias" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MerceriaModel.Compras" Width="1.5" PointX="7.5" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MerceriaModel.DetalleVenta" Width="1.5" PointX="7.5" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MerceriaModel.Direcciones" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MerceriaModel.Envios" Width="1.5" PointX="10.5" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MerceriaModel.ImagenesProducto" Width="1.5" PointX="7.5" PointY="17.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MerceriaModel.Paqueterias" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MerceriaModel.Productos" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="MerceriaModel.Subcategorias" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MerceriaModel.Tarjetas" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MerceriaModel.TipoUsuario" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MerceriaModel.Usuarios" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MerceriaModel.Ventas" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
-        <AssociationConnector Association="MerceriaModel.fk_Categorias" ManuallyRouted="false" />
-        <AssociationConnector Association="MerceriaModel.fk_Producto_Compra" ManuallyRouted="false" />
-        <AssociationConnector Association="MerceriaModel.fk_DetalleVenta" ManuallyRouted="false" />
-        <AssociationConnector Association="MerceriaModel.fk_DetalleVentaProducto" ManuallyRouted="false" />
-        <AssociationConnector Association="MerceriaModel.fk_Usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="MerceriaModel.fk_EnviosPaqueteria" ManuallyRouted="false" />
-        <AssociationConnector Association="MerceriaModel.fk_EnviosVenta" ManuallyRouted="false" />
-        <AssociationConnector Association="MerceriaModel.fk_ProductoImagen" ManuallyRouted="false" />
-        <AssociationConnector Association="MerceriaModel.fk_Subcategorias" ManuallyRouted="false" />
-        <AssociationConnector Association="MerceriaModel.fk_Usuario_Tarjeta" ManuallyRouted="false" />
-        <AssociationConnector Association="MerceriaModel.fk_TipoUsuario" ManuallyRouted="false" />
-        <AssociationConnector Association="MerceriaModel.fk_UsuarioVenta" ManuallyRouted="false" />
+      <Diagram DiagramId="d1b0e495f62e4e2c8cb2c8acc298a42e" Name="Diagram1" ZoomLevel="29">
+        <EntityTypeShape EntityType="MerceriaModel.Categorias" Width="1.5" PointX="3.75" PointY="14.75" />
+        <EntityTypeShape EntityType="MerceriaModel.DetalleVenta" Width="1.5" PointX="10.5" PointY="10.5" />
+        <EntityTypeShape EntityType="MerceriaModel.Direcciones" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="MerceriaModel.Envios" Width="1.5" PointX="7.5" PointY="10.125" />
+        <EntityTypeShape EntityType="MerceriaModel.Paqueterias" Width="1.5" PointX="5.25" PointY="18.5" />
+        <EntityTypeShape EntityType="MerceriaModel.Productos" Width="1.5" PointX="8.25" PointY="14.125" />
+        <EntityTypeShape EntityType="MerceriaModel.Subcategorias" Width="1.5" PointX="6" PointY="14.5" />
+        <EntityTypeShape EntityType="MerceriaModel.Tarjetas" Width="1.5" PointX="5.25" PointY="7" />
+        <EntityTypeShape EntityType="MerceriaModel.TipoUsuario" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="MerceriaModel.Usuarios" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="MerceriaModel.Ventas" Width="1.5" PointX="5.25" PointY="10.125" />
+        <AssociationConnector Association="MerceriaModel.fk_Categorias" />
+        <AssociationConnector Association="MerceriaModel.fk_DetalleVenta" />
+        <AssociationConnector Association="MerceriaModel.fk_DetalleVentaProducto" />
+        <AssociationConnector Association="MerceriaModel.fk_Usuario" />
+        <AssociationConnector Association="MerceriaModel.fk_EnviosPaqueteria" />
+        <AssociationConnector Association="MerceriaModel.fk_EnviosVenta" />
+        <AssociationConnector Association="MerceriaModel.fk_Subcategorias" />
+        <AssociationConnector Association="MerceriaModel.fk_Usuario_Tarjeta" />
+        <AssociationConnector Association="MerceriaModel.fk_TipoUsuario" />
+        <AssociationConnector Association="MerceriaModel.fk_UsuarioVenta" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
