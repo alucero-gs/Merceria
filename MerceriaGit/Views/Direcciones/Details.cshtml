@@ -1,0 +1,90 @@
+﻿@model MerceriaGit.Models.Direcciones
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Direcciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Calle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Entidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero_Exterior)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero_Exterior)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero_Interior)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero_Interior)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Codigo_Postal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codigo_Postal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Referencias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Referencias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuarios.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuarios.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

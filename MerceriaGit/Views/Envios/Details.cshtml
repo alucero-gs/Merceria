@@ -1,0 +1,82 @@
+﻿@model MerceriaGit.Models.Envios
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Envios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Codigo_Rastreo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codigo_Rastreo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Envio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Envio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Estimada_Entrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Estimada_Entrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado_Envio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado_Envio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Entrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Entrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paqueterias.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paqueterias.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ventas.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ventas.Id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="contextoMerceria.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categorias">
           <Key>
             <PropertyRef Name="Id" />
@@ -256,7 +256,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="contextoMerceriaStoreContainer">
+        <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Direcciones" EntityType="Self.Direcciones" Schema="dbo" store:Type="Tables" />
@@ -313,7 +313,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="contextoMerceria" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Categorias">
           <Key>
             <PropertyRef Name="Id" />
@@ -585,7 +585,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="contextoModelo" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categorias" EntityType="Self.Categorias" />
           <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" />
           <EntitySet Name="Direcciones" EntityType="Self.Direcciones" />
@@ -643,9 +643,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="contextoMerceriaStoreContainer" CdmEntityContainer="Entities1">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="contextoModelo">
           <EntitySetMapping Name="Categorias">
-            <EntityTypeMapping TypeName="contextoMerceria.Categorias">
+            <EntityTypeMapping TypeName="Model.Categorias">
               <MappingFragment StoreEntitySet="Categorias">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -655,7 +655,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DetalleVenta">
-            <EntityTypeMapping TypeName="contextoMerceria.DetalleVenta">
+            <EntityTypeMapping TypeName="Model.DetalleVenta">
               <MappingFragment StoreEntitySet="DetalleVenta">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Id_Venta" ColumnName="Id_Venta" />
@@ -667,7 +667,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Direcciones">
-            <EntityTypeMapping TypeName="contextoMerceria.Direcciones">
+            <EntityTypeMapping TypeName="Model.Direcciones">
               <MappingFragment StoreEntitySet="Direcciones">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
@@ -683,7 +683,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Envios">
-            <EntityTypeMapping TypeName="contextoMerceria.Envios">
+            <EntityTypeMapping TypeName="Model.Envios">
               <MappingFragment StoreEntitySet="Envios">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Id_Paqueteria" ColumnName="Id_Paqueteria" />
@@ -698,7 +698,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Paqueterias">
-            <EntityTypeMapping TypeName="contextoMerceria.Paqueterias">
+            <EntityTypeMapping TypeName="Model.Paqueterias">
               <MappingFragment StoreEntitySet="Paqueterias">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -710,7 +710,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Productos">
-            <EntityTypeMapping TypeName="contextoMerceria.Productos">
+            <EntityTypeMapping TypeName="Model.Productos">
               <MappingFragment StoreEntitySet="Productos">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Id_Subcategoria" ColumnName="Id_Subcategoria" />
@@ -725,7 +725,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Subcategorias">
-            <EntityTypeMapping TypeName="contextoMerceria.Subcategorias">
+            <EntityTypeMapping TypeName="Model.Subcategorias">
               <MappingFragment StoreEntitySet="Subcategorias">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Id_Categoria" ColumnName="Id_Categoria" />
@@ -736,7 +736,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tarjetas">
-            <EntityTypeMapping TypeName="contextoMerceria.Tarjetas">
+            <EntityTypeMapping TypeName="Model.Tarjetas">
               <MappingFragment StoreEntitySet="Tarjetas">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
@@ -748,7 +748,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TipoUsuario">
-            <EntityTypeMapping TypeName="contextoMerceria.TipoUsuario">
+            <EntityTypeMapping TypeName="Model.TipoUsuario">
               <MappingFragment StoreEntitySet="TipoUsuario">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -758,7 +758,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="contextoMerceria.Usuarios">
+            <EntityTypeMapping TypeName="Model.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -773,7 +773,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ventas">
-            <EntityTypeMapping TypeName="contextoMerceria.Ventas">
+            <EntityTypeMapping TypeName="Model.Ventas">
               <MappingFragment StoreEntitySet="Ventas">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />

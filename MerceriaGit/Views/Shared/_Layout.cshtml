@@ -18,13 +18,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Merceria.com ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Categorias <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Agregar", "Create", "Categorias", null, new { id = "add" })</li>
+                            <li>@Html.ActionLink("Actualizar", "Edit", "Categorias", null, new { id = "edit" })</li>
+                            <li>@Html.ActionLink("Buscar", "Details", "Categorias", null, new { id = "find" })</li>
+                            <li>@Html.ActionLink("Eliminar", "Delete", "Categorias", null, new { id = "delete" })</li>
+                            <li>@Html.ActionLink("Ver todas", "Index", "Categorias", null, new { id = "list" })</li>
+                        </ul>
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
