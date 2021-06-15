@@ -13,10 +13,10 @@ namespace MerceriaGit.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class contextMerceria : DbContext
+    public partial class contextMerceria1 : DbContext
     {
-        public contextMerceria()
-            : base("name=contextMerceria")
+        public contextMerceria1()
+            : base("name=contextMerceria1")
         {
         }
     
@@ -26,8 +26,17 @@ namespace MerceriaGit.Models
         }
     
         public virtual DbSet<Categorias> Categorias { get; set; }
+        public virtual DbSet<Compras> Compras { get; set; }
+        public virtual DbSet<DetalleVenta> DetalleVenta { get; set; }
+        public virtual DbSet<Direcciones> Direcciones { get; set; }
+        public virtual DbSet<Envios> Envios { get; set; }
+        public virtual DbSet<ImagenesProducto> ImagenesProducto { get; set; }
+        public virtual DbSet<Paqueterias> Paqueterias { get; set; }
+        public virtual DbSet<Productos> Productos { get; set; }
         public virtual DbSet<Subcategorias> Subcategorias { get; set; }
+        public virtual DbSet<Tarjetas> Tarjetas { get; set; }
         public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<Ventas> Ventas { get; set; }
     }
 }

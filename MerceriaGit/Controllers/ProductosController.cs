@@ -10,112 +10,112 @@ using MerceriaGit.Models;
 
 namespace MerceriaGit.Controllers
 {
-    public class SubcategoriasController : Controller
+    public class ProductosController : Controller
     {
         private contextMerceria1 db = new contextMerceria1();
 
-        // GET: Subcategorias
+        // GET: Productos
         public ActionResult Index()
         {
-            var subcategorias = db.Subcategorias.Include(s => s.Categorias);
-            return View(subcategorias.ToList());
+            var productos = db.Productos.Include(p => p.Subcategorias);
+            return View(productos.ToList());
         }
 
-        // GET: Subcategorias/Details/5
+        // GET: Productos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Subcategorias subcategorias = db.Subcategorias.Find(id);
-            if (subcategorias == null)
+            Productos productos = db.Productos.Find(id);
+            if (productos == null)
             {
                 return HttpNotFound();
             }
-            return View(subcategorias);
+            return View(productos);
         }
 
-        // GET: Subcategorias/Create
+        // GET: Productos/Create
         public ActionResult Create()
         {
-            ViewBag.Id_Categoria = new SelectList(db.Categorias, "Id", "Nombre");
+            ViewBag.Id_Subcategoria = new SelectList(db.Subcategorias, "Id", "Nombre");
             return View();
         }
 
-        // POST: Subcategorias/Create
+        // POST: Productos/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Id_Categoria,Nombre,Descripcion,Estado")] Subcategorias subcategorias)
+        public ActionResult Create([Bind(Include = "Id,Id_Subcategoria,Nombre,Descripcion,Precio_Compra,Precio_Venta,Existencia,Estado")] Productos productos)
         {
             if (ModelState.IsValid)
             {
-                db.Subcategorias.Add(subcategorias);
+                db.Productos.Add(productos);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Id_Categoria = new SelectList(db.Categorias, "Id", "Nombre", subcategorias.Id_Categoria);
-            return View(subcategorias);
+            ViewBag.Id_Subcategoria = new SelectList(db.Subcategorias, "Id", "Nombre", productos.Id_Subcategoria);
+            return View(productos);
         }
 
-        // GET: Subcategorias/Edit/5
+        // GET: Productos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Subcategorias subcategorias = db.Subcategorias.Find(id);
-            if (subcategorias == null)
+            Productos productos = db.Productos.Find(id);
+            if (productos == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Id_Categoria = new SelectList(db.Categorias, "Id", "Nombre", subcategorias.Id_Categoria);
-            return View(subcategorias);
+            ViewBag.Id_Subcategoria = new SelectList(db.Subcategorias, "Id", "Nombre", productos.Id_Subcategoria);
+            return View(productos);
         }
 
-        // POST: Subcategorias/Edit/5
+        // POST: Productos/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Id_Categoria,Nombre,Descripcion,Estado")] Subcategorias subcategorias)
+        public ActionResult Edit([Bind(Include = "Id,Id_Subcategoria,Nombre,Descripcion,Precio_Compra,Precio_Venta,Existencia,Estado")] Productos productos)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(subcategorias).State = EntityState.Modified;
+                db.Entry(productos).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Id_Categoria = new SelectList(db.Categorias, "Id", "Nombre", subcategorias.Id_Categoria);
-            return View(subcategorias);
+            ViewBag.Id_Subcategoria = new SelectList(db.Subcategorias, "Id", "Nombre", productos.Id_Subcategoria);
+            return View(productos);
         }
 
-        // GET: Subcategorias/Delete/5
+        // GET: Productos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Subcategorias subcategorias = db.Subcategorias.Find(id);
-            if (subcategorias == null)
+            Productos productos = db.Productos.Find(id);
+            if (productos == null)
             {
                 return HttpNotFound();
             }
-            return View(subcategorias);
+            return View(productos);
         }
 
-        // POST: Subcategorias/Delete/5
+        // POST: Productos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Subcategorias subcategorias = db.Subcategorias.Find(id);
-            db.Subcategorias.Remove(subcategorias);
+            Productos productos = db.Productos.Find(id);
+            db.Productos.Remove(productos);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

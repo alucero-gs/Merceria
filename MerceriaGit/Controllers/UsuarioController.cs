@@ -10,7 +10,7 @@ namespace MerceriaGit.Controllers
     [Authorize]
     public class UsuarioController : Controller
     {
-        private contextMerceria db = new contextMerceria();
+        private contextMerceria1 db = new contextMerceria1();
 
         // GET: Usuario
         public ActionResult Index(string email)

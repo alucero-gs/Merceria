@@ -12,22 +12,23 @@ namespace MerceriaGit.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Subcategorias
+    public partial class Paqueterias
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Subcategorias()
+        public Paqueterias()
         {
-            this.Productos = new HashSet<Productos>();
+            this.Envios = new HashSet<Envios>();
         }
     
         public int Id { get; set; }
-        public int Id_Categoria { get; set; }
         public string Nombre { get; set; }
-        public string Descripcion { get; set; }
+        public string Razon_Social { get; set; }
+        public string Telefono { get; set; }
+        public string Correo { get; set; }
+        public string Direccion { get; set; }
         public int Estado { get; set; }
     
-        public virtual Categorias Categorias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Productos> Productos { get; set; }
+        public virtual ICollection<Envios> Envios { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace MerceriaGit.Controllers
     [Authorize]
     public class CategoriasController : Controller
     {
-        private contextMerceria db = new contextMerceria();
+        private contextMerceria1 db = new contextMerceria1();
 
         // GET: Categorias
         public ActionResult Index()

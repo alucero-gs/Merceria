@@ -12,34 +12,31 @@ namespace MerceriaGit.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuarios
+    public partial class Productos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuarios()
+        public Productos()
         {
-            this.Direcciones = new HashSet<Direcciones>();
-            this.Tarjetas = new HashSet<Tarjetas>();
-            this.Ventas = new HashSet<Ventas>();
+            this.Compras = new HashSet<Compras>();
+            this.DetalleVenta = new HashSet<DetalleVenta>();
+            this.ImagenesProducto = new HashSet<ImagenesProducto>();
         }
     
         public int Id { get; set; }
+        public int Id_Subcategoria { get; set; }
         public string Nombre { get; set; }
-        public string Apellido_Paterno { get; set; }
-        public string Apellido_Materno { get; set; }
-        public System.DateTime Fecha_Nacimiento { get; set; }
-        public string Telefono { get; set; }
-        public string Correo { get; set; }
-        public int Id_TipoUsuario { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Estado { get; set; }
+        public string Descripcion { get; set; }
+        public decimal Precio_Compra { get; set; }
+        public decimal Precio_Venta { get; set; }
+        public int Existencia { get; set; }
+        public int Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Direcciones> Direcciones { get; set; }
+        public virtual ICollection<Compras> Compras { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tarjetas> Tarjetas { get; set; }
-        public virtual TipoUsuario TipoUsuario { get; set; }
+        public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ventas> Ventas { get; set; }
+        public virtual ICollection<ImagenesProducto> ImagenesProducto { get; set; }
+        public virtual Subcategorias Subcategorias { get; set; }
     }
 }
