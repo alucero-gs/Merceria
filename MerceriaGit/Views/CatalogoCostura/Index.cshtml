@@ -1,17 +1,54 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "Catalogo Costura";
 }
 
-<!DOCTYPE html>
+<h1 style="text-align:center">Catalogo de Costura</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
+<div class="row">
+    <div class="col-md-4" style="text-align:center">
+        <h2>Tejidos</h2>
+        <p>
+            <img src="~/Content/img/tejidos.jpg"
+                 width="260"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Index","Home",new {idCat =2,nombre="Confeccion"})" class="btn btn-primary">Ir &raquo;</a></p>
     </div>
-</body>
-</html>
+    <div class="col-md-4" style="text-align:center">
+        <h2>Agujas</h2>
+        <p>
+            <img src="~/Content/img/agujas.jpg"
+                 width="280"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Index","CatalogoSubcategorias",new {idCat =3,nombre="Costura"})" class="btn btn-primary">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <h2>Alfileres</h2>
+        <p>
+            <img src="~/Content/img/alfileres.jpg"
+                 width="280"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Index","Home",new {idCat =4,nombre="Maquina"})" class="btn btn-primary">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <h2>Botones</h2>
+        <p>
+            <img src="~/Content/img/botones.jpg"
+                 width="280"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Index","Home",new {idCat =4,nombre="Maquina"})" class="btn btn-primary">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <h2>Hilos</h2>
+        <p>
+            <img src="~/Content/img/hilos.jpg"
+                 width="280"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Index","Home",new {idCat =4,nombre="Maquina"})" class="btn btn-primary">Ir &raquo;</a></p>
+    </div>
+</div>

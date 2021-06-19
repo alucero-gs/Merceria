@@ -170,6 +170,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CatalogoCosturaController.cs" />
+    <Compile Include="Controllers\CatalogoMaquinasController.cs" />
     <Compile Include="Controllers\CatalogoSubcategoriasController.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\ComprasController.cs" />
@@ -351,6 +352,7 @@
     <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\CatalogoSubcategorias\Index.cshtml" />
     <Content Include="Views\CatalogoCostura\Index.cshtml" />
+    <Content Include="Views\CatalogoMaquinas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
