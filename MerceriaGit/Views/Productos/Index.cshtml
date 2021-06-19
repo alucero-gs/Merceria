@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/_LayoutCompras.cshtml";
 }
 
-<h2>Lista de Productos</h2>
-
-<p>
-    @Html.ActionLink("Crear nuevo Producto", "Create")
-</p>
+<div class="container text-center">
+    <h1 style="color:black; font-size:4rem;font-family: 'Playfair Display';font-style:italic">Categorías</h1>
+    <p class="btn btn-info" style="margin-bottom:15px;">
+        @Html.ActionLink("Agregar un nuevo Producto", "Create")
+    </p>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -60,9 +61,9 @@
             @Html.DisplayFor(modelItem => item.Subcategorias.Nombre)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Borrar", "Delete", new { id=item.Id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.Id }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.Id }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

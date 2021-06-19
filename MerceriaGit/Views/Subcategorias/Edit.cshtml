@@ -5,12 +5,15 @@
     Layout = "~/Views/Shared/_LayoutCompras.cshtml";
 }
 
-<h2>Editar Subcategoría</h2>
+<div class="container text-center">
+    <h1 style="color:black; font-size:4rem;font-family: 'Playfair Display';font-style:italic">Editar Subcategoría</h1>
+</div>
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Subcategorias</h4>
         <hr />
