@@ -3,4 +3,52 @@
     ViewBag.Title = "Catalogo Subcategorías";
 }
 
-<h1>Catalogo de Subcategorias</h1>
+<h1 style="text-align:center">Catalogo de Confección</h1>
+
+<div class="row">
+    <div class="col-md-4" style="text-align:center">
+        <h2>Listones</h2>
+        <p>
+            <img src="~/Content/img/listones.jpg"
+                 width="360"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Index","Home",new {idCat =2,nombre="Confeccion"})" class="btn btn-primary">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <h2>Elasticos</h2>
+        <p>
+            <img src="~/Content/img/elasticos.jpg"
+                 width="280"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Index","CatalogoSubcategorias",new {idCat =3,nombre="Costura"})" class="btn btn-primary">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <h2>Encajes</h2>
+        <p>
+            <img src="~/Content/img/encajes.jpg"
+                 width="280"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Index","Home",new {idCat =4,nombre="Maquina"})" class="btn btn-primary">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <h2>Cierres</h2>
+        <p>
+            <img src="~/Content/img/cierres.jpg"
+                 width="280"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Index","Home",new {idCat =4,nombre="Maquina"})" class="btn btn-primary">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <h2>Cintas</h2>
+        <p>
+            <img src="~/Content/img/cintas.jpg"
+                 width="280"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Index","Home",new {idCat =4,nombre="Maquina"})" class="btn btn-primary">Ir &raquo;</a></p>
+    </div>
+</div>

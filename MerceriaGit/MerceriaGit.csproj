@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CatalogoCosturaController.cs" />
     <Compile Include="Controllers\CatalogoSubcategoriasController.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\ComprasController.cs" />
@@ -245,11 +246,24 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\accesorios.jpg" />
+    <Content Include="Content\img\agujas.jpg" />
+    <Content Include="Content\img\alfileres.jpg" />
+    <Content Include="Content\img\botones.jpg" />
+    <Content Include="Content\img\cierres.jpg" />
+    <Content Include="Content\img\cintas.jpg" />
     <Content Include="Content\img\comprador.jpg" />
     <Content Include="Content\img\confeccion.jpg" />
     <Content Include="Content\img\costura.jpg" />
     <Content Include="Content\img\costura1.jpg" />
+    <Content Include="Content\img\elasticos.jpg" />
+    <Content Include="Content\img\encajes.jpg" />
+    <Content Include="Content\img\hilos.jpg" />
+    <Content Include="Content\img\listones.jpg" />
     <Content Include="Content\img\maquina_costura.jpg" />
+    <Content Include="Content\img\maquina_profe.jpg" />
+    <Content Include="Content\img\maquina_semi.jpg" />
+    <Content Include="Content\img\tejidos.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -336,6 +350,7 @@
     <Content Include="Views\Productos\Edit.cshtml" />
     <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\CatalogoSubcategorias\Index.cshtml" />
+    <Content Include="Views\CatalogoCostura\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
