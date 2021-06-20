@@ -245,6 +245,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\merceria.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -279,6 +280,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Home\merceria.jpg" />
+    <Content Include="Views\Images\merceria.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -368,6 +371,17 @@
     <Content Include="Views\Envios\Details.cshtml" />
     <Content Include="Views\Envios\Edit.cshtml" />
     <Content Include="Views\Envios\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout - Categorias.cshtml" />
+    <Content Include="Views\Shared\_Layout - DetalleVentas.cshtml" />
+    <Content Include="Views\Shared\_Layout - Direcciones.cshtml" />
+    <Content Include="Views\Shared\_Layout - Envios.cshtml" />
+    <Content Include="Views\Shared\_Layout - Paqueterias.cshtml" />
+    <Content Include="Views\Shared\_Layout - Productos.cshtml" />
+    <Content Include="Views\Shared\_Layout - Subcategorias.cshtml" />
+    <Content Include="Views\Shared\_Layout - Tarjetas.cshtml" />
+    <Content Include="Views\Shared\_Layout - TiposUsuarios.cshtml" />
+    <Content Include="Views\Shared\_Layout - Usuarios.cshtml" />
+    <Content Include="Views\Shared\_Layout - Ventas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,16 +1,19 @@
 ﻿@model MerceriaGit.Models.Subcategorias
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar subcategoria";
 }
 
-<h2>Edit</h2>
+
+<div class="container text-center">
+    <h1 style="color:black; font-size:4rem;font-family: 'Playfair Display';font-style:italic">Editar subcategoria</h1>
+</div>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Subcategorias</h4>
         <hr />
@@ -51,14 +54,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Guardar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Regresar", "Index")
 </div>
 
 @section Scripts {

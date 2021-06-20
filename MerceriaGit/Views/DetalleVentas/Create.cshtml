@@ -1,10 +1,12 @@
 ﻿@model MerceriaGit.Models.DetalleVenta
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Agregar detalle de venta";
 }
 
-<h2>Create</h2>
+<div class="container text-center">
+    <h1 style="color:black; font-size:4rem;font-family: 'Playfair Display';font-style:italic">Agregar detalle de venta</h1>
+</div>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +14,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>DetalleVenta</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -57,14 +58,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Agregar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Regresar", "Index")
 </div>
 
 @section Scripts {

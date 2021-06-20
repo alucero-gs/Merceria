@@ -1,10 +1,12 @@
 ﻿@model MerceriaGit.Models.Tarjetas
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar tarjeta";
 }
 
-<h2>Edit</h2>
+<div class="container text-center">
+    <h1 style="color:black; font-size:4rem;font-family: 'Playfair Display';font-style:italic">Editar tarjeta</h1>
+</div>
 
 
 @using (Html.BeginForm())
@@ -66,7 +68,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Regresar", "Index")
 </div>
 
 @section Scripts {

@@ -1,13 +1,15 @@
 ﻿@model MerceriaGit.Models.Usuarios
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles de usuario";
 }
 
-<h2>Details</h2>
+<div class="container text-center">
+    <h2>Usuario : @Html.DisplayFor(model => model.Nombre + " "+ model.Apellido_Paterno + " "+ model.Apellido_Materno)</h2>
+</div>
 
 <div>
-    <h4>Usuarios</h4>
+    <h4>Detalles: </h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -77,6 +79,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Regresar", "Index")
 </p>

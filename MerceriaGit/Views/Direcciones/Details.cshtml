@@ -1,13 +1,15 @@
 ﻿@model MerceriaGit.Models.Direcciones
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles de dirección";
 }
 
-<h2>Details</h2>
+<div class="container text-center">
+    <h2>Dirección : @Html.DisplayFor(model => model.Calle + model.Numero_Exterior + model.Numero_Interior)</h2>
+</div>
 
 <div>
-    <h4>Direcciones</h4>
+    <h4>Detalles: </h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -85,6 +87,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Regresar", "Index")
 </p>
