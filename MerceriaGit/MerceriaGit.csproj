@@ -264,6 +264,7 @@
     <Content Include="Content\img\maquina_costura.jpg" />
     <Content Include="Content\img\maquina_profe.jpg" />
     <Content Include="Content\img\maquina_semi.jpg" />
+    <Content Include="Content\img\merceria.jpg" />
     <Content Include="Content\img\tejidos.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
