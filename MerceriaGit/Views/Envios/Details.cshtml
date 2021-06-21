@@ -4,16 +4,36 @@
     ViewBag.Title = "Detalles de envio";
 }
 
-<div class="container text-center">
-    <h2>Envio con fecha : @Html.DisplayFor(model => model.Fecha_Envio)</h2>
-</div>
+<h2 class="text-center" style="font-family: 'Playfair Display'">Detalles</h2>
 
 <div>
-    <h4>Detalles: </h4>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.Codigo_Rastreo)
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>
+            ID Venta
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ventas.Id)
+        </dd>
+        <dt>
+            Paqueteria
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paqueterias.Nombre)
+        </dd>
+        <dt>
+            Guia de seguimiento
         </dt>
 
         <dd>
@@ -21,7 +41,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Fecha_Envio)
+            Fecha de envio
         </dt>
 
         <dd>
@@ -29,7 +49,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Fecha_Estimada_Entrega)
+            Fecha de entrega
         </dt>
 
         <dd>
@@ -37,7 +57,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Estado_Envio)
+            Estado De envio
         </dt>
 
         <dd>
@@ -60,25 +80,11 @@
             @Html.DisplayFor(model => model.Estado)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Paqueterias.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Paqueterias.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ventas.Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ventas.Id)
-        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Regresar", "Index")
+    @Html.ActionLink("Regresar a la lista", "Index") |
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id })
+
 </p>

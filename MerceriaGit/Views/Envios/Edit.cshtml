@@ -4,23 +4,19 @@
     ViewBag.Title = "Editar envio";
 }
 
-<div class="container text-center">
-    <h1 style="color:black; font-size:4rem;font-family: 'Playfair Display';font-style:italic">Editar envio</h1>
-</div>
-
+<h2 class="text-center" style="font-family: 'Playfair Display'">Modificar informacion</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Envios</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Id_Paqueteria, "Id_Paqueteria", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Id_Paqueteria, "Paqueteria", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("Id_Paqueteria", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Id_Paqueteria, "", new { @class = "text-danger" })
@@ -28,7 +24,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Id_Venta, "Id_Venta", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Id_Venta, "Id Venta", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("Id_Venta", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Id_Venta, "", new { @class = "text-danger" })
@@ -36,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Codigo_Rastreo, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Codigo_Rastreo, "Guia de seguimiento", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Codigo_Rastreo, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Codigo_Rastreo, "", new { @class = "text-danger" })
@@ -44,23 +40,23 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Fecha_Envio, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Fecha_Envio, "Fecha Envio", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Fecha_Envio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Fecha_Envio, new { htmlAttributes = new { @type = "date", @class = "form-control bootstrap-datetimepicker-widget" } })
                 @Html.ValidationMessageFor(model => model.Fecha_Envio, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Fecha_Estimada_Entrega, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Fecha_Estimada_Entrega, "Fecha Estimada de entrega", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Fecha_Estimada_Entrega, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Fecha_Estimada_Entrega, new { htmlAttributes = new { @type = "date", @class = "form-control bootstrap-datetimepicker-widget" } })
                 @Html.ValidationMessageFor(model => model.Fecha_Estimada_Entrega, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Estado_Envio, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Estado_Envio, "Estado de envio", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Estado_Envio, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Estado_Envio, "", new { @class = "text-danger" })
@@ -68,9 +64,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Fecha_Entrega, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Fecha_Entrega, "Fecha de entrega", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Fecha_Entrega, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Fecha_Entrega, new { htmlAttributes = new { @type = "date", @class = "form-control bootstrap-datetimepicker-widget" } })
                 @Html.ValidationMessageFor(model => model.Fecha_Entrega, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -85,14 +81,15 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" />
+                <input type="submit" value="Guardar modificaciones" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
+
 <div>
-    @Html.ActionLink("Regresar", "Index")
+    @Html.ActionLink("Regresar a la lista", "Index")
 </div>
 
 @section Scripts {

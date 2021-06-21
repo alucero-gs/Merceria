@@ -52,6 +52,7 @@ namespace MerceriaGit.Controllers
         {
             if (ModelState.IsValid)
             {
+                db.SaveChanges();
                 db.Tarjetas.Add(tarjetas);
                 db.SaveChanges();
                 return RedirectToAction("Index");

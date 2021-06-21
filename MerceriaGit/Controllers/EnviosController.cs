@@ -45,14 +45,15 @@ namespace MerceriaGit.Controllers
         }
 
         // POST: Envios/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Id_Paqueteria,Id_Venta,Codigo_Rastreo,Fecha_Envio,Fecha_Estimada_Entrega,Estado_Envio,Fecha_Entrega,Estado")] Envios envios)
         {
             if (ModelState.IsValid)
             {
+                envios.Estado = 1;
                 db.Envios.Add(envios);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -81,8 +82,8 @@ namespace MerceriaGit.Controllers
         }
 
         // POST: Envios/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Id_Paqueteria,Id_Venta,Codigo_Rastreo,Fecha_Envio,Fecha_Estimada_Entrega,Estado_Envio,Fecha_Entrega,Estado")] Envios envios)
@@ -119,7 +120,7 @@ namespace MerceriaGit.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Envios envios = db.Envios.Find(id);
-            db.Envios.Remove(envios);
+            envios.Estado = 0;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

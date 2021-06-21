@@ -4,16 +4,37 @@
     ViewBag.Title = "Eliminar registro";
 }
 
-<div class="container text-center">
-    <h1 style="color:black; font-size:4rem;font-family: 'Playfair Display';font-style:italic">Eliminar registro</h1>
-</div>
+<h2 class="text-center" style="font-family: 'Playfair Display'">Eliminar informacion</h2>
 
-<h2>¿Estás seguro que quieres eliminar este registro?</h2>
+<h3 class="text-center" style="font-family: 'Playfair Display'">¿Esta seguro en eliminar la informacion</h3>
 <div>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.Codigo_Rastreo)
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>
+            ID Venta
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ventas.Id)
+        </dd>
+        <dt>
+            Paqueteria
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paqueterias.Nombre)
+        </dd>
+        <dt>
+            Guia de seguimiento
         </dt>
 
         <dd>
@@ -21,7 +42,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Fecha_Envio)
+            Fecha de envio
         </dt>
 
         <dd>
@@ -29,7 +50,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Fecha_Estimada_Entrega)
+            Fecha de entrega
         </dt>
 
         <dd>
@@ -37,7 +58,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Estado_Envio)
+            Estado De envio
         </dt>
 
         <dd>
@@ -60,21 +81,6 @@
             @Html.DisplayFor(model => model.Estado)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Paqueterias.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Paqueterias.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ventas.Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ventas.Id)
-        </dd>
 
     </dl>
 
@@ -83,8 +89,9 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Eliminar" class="btn btn-default" /> |
-            @Html.ActionLink("Regresar", "Index")
+            @Html.ActionLink("Regresar a la lista", "Index") |
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+
         </div>
     }
 </div>

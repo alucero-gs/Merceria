@@ -245,6 +245,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\icon_cards.png" />
+    <Content Include="Content\Images\icon_category.png" />
+    <Content Include="Content\Images\icon_money.png" />
+    <Content Include="Content\Images\icon_package.png" />
+    <Content Include="Content\Images\icon_products.png" />
+    <Content Include="Content\Images\icon_users.png" />
+    <Content Include="Content\Images\list.jpeg" />
     <Content Include="Content\Images\merceria.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

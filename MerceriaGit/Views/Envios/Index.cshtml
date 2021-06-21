@@ -4,74 +4,172 @@
     ViewBag.Title = "Envios - Inicio";
 }
 
-<div class="container text-center">
-    <h1 style="color:black; font-size:4rem;font-family: 'Playfair Display';font-style:italic">Envios</h1>
-    <p class="btn btn-info" style="margin-bottom:15px;">
-        @Html.ActionLink("Agregar", "Create")
-    </p>
+<img src="~/Content/Images/list.jpeg" style="height:30rem;width:100%" class="img-rounded" alt="Lista imagen" />
+<br />
+
+<h2 class="text-center" style="font-family: 'Playfair Display'">Lista de envios</h2>
+<br />
+<div>
+    @Html.ActionLink("Generar un nuevo envio", "Create", null, new { @class = "btn btn-success" })
 </div>
-<table class="table table-striped table-bordered">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Codigo_Rastreo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha_Envio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha_Estimada_Entrega)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado_Envio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha_Entrega)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Paqueterias.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ventas.Id)
-        </th>
-        <th></th>
-    </tr>
+<br />
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Codigo_Rastreo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha_Envio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha_Estimada_Entrega)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado_Envio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha_Entrega)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Paqueterias.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ventas.Id)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
-                @Html.ActionLink("Ver", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
-            </td>
+<input class="form-control" id="myInput" type="text" placeholder="Buscar... ">
+<br>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr class="text-center">
+            <th style="font-family: 'Playfair Display'">
+                ID
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Guia de Rastreo
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Fecha de envio
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Fecha estimada de entrega
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Estado del envio
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Fecha de entrega
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Nombre de la paqueteria
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Id venta
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Estado
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Accciones
+            </th>
         </tr>
-    }
+    </thead>
+    <tbody id="myTable">
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <td style="font-family: 'Playfair Display'">
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @Html.DisplayFor(modelItem => item.Codigo_Rastreo)
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @{
+                        DateTime fecha;
+                        string fechaEnvio;
+                        if (item.Fecha_Estimada_Entrega != null)
+                        {
+                            fecha = (DateTime)item.Fecha_Envio;
+                            fechaEnvio = fecha.ToShortDateString();
+                        }
+                        else
+                        {
+                            fechaEnvio = "No hay fecha asignada";
+                        }
+                    }
+                    @fechaEnvio
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @{
+                        string fechaEstimada;
+                        if (item.Fecha_Estimada_Entrega != null)
+                        {
+                            fecha = (DateTime)item.Fecha_Estimada_Entrega;
+                            fechaEstimada = fecha.ToShortDateString();
+                        }
+                        else
+                        {
+                            fechaEstimada = "No hay fecha asignada";
+                        }
 
+                    }
+                    @fechaEstimada
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @{
+                        int estado = (int)item.Estado_Envio;
+                        string estadoEnvio;
+                        if (estado == 1)
+                        {
+                            estadoEnvio = "Pendiente";
+
+                        }
+                        else if (estado == 2)
+                        {
+                            estadoEnvio = "En camino";
+                        }
+                        else
+                        {
+                            estadoEnvio = "Entregado";
+                        }
+                    }
+                    @estadoEnvio
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @{
+                        string fechaEntrega;
+                        if (item.Fecha_Estimada_Entrega != null)
+                        {
+                            fecha = (DateTime)item.Fecha_Estimada_Entrega;
+                            fechaEntrega = fecha.ToShortDateString();
+                        }
+                        else
+                        {
+                            fechaEntrega = "No hay fecha asignada";
+                        }
+
+                    }
+                    @fechaEntrega
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @Html.DisplayFor(modelItem => item.Paqueterias.Nombre)
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @Html.DisplayFor(modelItem => item.Ventas.Id)
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @{
+                        estado = (int)item.Estado;
+                        string estadoLogico;
+                        if (estado == 1)
+                        {
+                            estadoLogico = "Activo";
+
+                        }
+                        else
+                        {
+                            estadoLogico = "Desactivado";
+                        }
+                    }
+                    @estadoLogico
+                </td>
+                <td style="font-family: 'Playfair Display';width:30rem">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+<p>Nota: Recuerde que puede hacer una busqueda rapida en la parte superior</p>
+
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
