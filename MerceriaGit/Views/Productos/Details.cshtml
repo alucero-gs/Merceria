@@ -1,0 +1,28 @@
+﻿@model MerceriaGit.Models.Productos
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center" style="font-family: 'Playfair Display'">@Html.DisplayFor(model => model.Nombre)</h2>
+<br />
+<br />
+<div style="display:flex;justify-content:space-around">
+    <img style="height:40rem;width:40rem" src="@Html.DisplayFor(model => model.Imagen)" alt="Imagen" />
+    <div>
+        <br />
+        <br />
+        <h3 style="font-family: 'Playfair Display';text-justify:auto; width:50rem;font-size:2rem">@Html.DisplayFor(model => model.Descripcion)</h3>
+        <br />
+        <h3 style="font-family: 'Playfair Display'">Precio: <span style="color:green">$ @Html.DisplayFor(model => model.Precio_Venta)</span> </h3>
+        <br />
+        <div class="text-center">
+            @Html.ActionLink("Regresar a la tienda", "Index", "Home", null, new { @class = "btn btn-info text-center", @style = "font-family: 'Playfair Display'" })
+            @Html.ActionLink("Agregar al carrito", "Agregar", "Carro", new { @id = Model.Id }, new { @class = "btn btn-success text-center", @style = "font-family: 'Playfair Display'" })
+        </div>
+    </div>
+</div>
+
+
+

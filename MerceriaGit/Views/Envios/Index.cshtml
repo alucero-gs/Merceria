@@ -1,0 +1,174 @@
+﻿@model IEnumerable<MerceriaGit.Models.Envios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<img src="~/Content/Imagenes/list.jpg" style="height:30rem;width:100%" class="img-rounded" alt="Lista imagen" />
+<br />
+
+<h2 class="text-center" style="font-family: 'Playfair Display'">Lista de envios</h2>
+<br />
+<div>
+    @Html.ActionLink("Generar un nuevo envio", "Create", null, new { @class = "btn btn-success" })
+</div>
+<br />
+
+<input class="form-control" id="myInput" type="text" placeholder="Buscar... ">
+<br>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr class="text-center">
+            <th style="font-family: 'Playfair Display'">
+                ID
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Guia de Rastreo
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Fecha de envio
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Fecha estimada de entrega
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Estado del envio
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Fecha de entrega
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Nombre de la paqueteria
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Id venta
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Estado
+            </th>
+            <th style="font-family: 'Playfair Display'">
+                Accciones
+            </th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <td style="font-family: 'Playfair Display'">
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @Html.DisplayFor(modelItem => item.Codigo_Rastreo)
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @{
+                        DateTime fecha;
+                        string fechaEnvio;
+                        if (item.Fecha_Estimada_Entrega != null)
+                        {
+                            fecha = (DateTime)item.Fecha_Envio;
+                            fechaEnvio = fecha.ToShortDateString();
+                        }
+                        else
+                        {
+                            fechaEnvio = "No hay fecha asignada";
+                        }
+                    }
+                    @fechaEnvio
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @{
+                        string fechaEstimada;
+                        if (item.Fecha_Estimada_Entrega !=null) {
+                            fecha = (DateTime)item.Fecha_Estimada_Entrega;
+                            fechaEstimada = fecha.ToShortDateString();
+                        }
+                        else
+                        {
+                            fechaEstimada = "No hay fecha asignada";
+                        }
+
+                    }
+                    @fechaEstimada
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @{
+                        int estado = (int)item.Estado_Envio;
+                        string estadoEnvio;
+                        if (estado == 1)
+                        {
+                            estadoEnvio = "Pendiente";
+
+                        }
+                        else if (estado == 2)
+                        {
+                            estadoEnvio = "En camino";
+                        }
+                        else
+                        {
+                            estadoEnvio = "Entregado";
+                        }
+                    }
+                    @estadoEnvio
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @{
+                        string fechaEntrega;
+                        if (item.Fecha_Estimada_Entrega != null)
+                        {
+                            fecha = (DateTime)item.Fecha_Estimada_Entrega;
+                            fechaEntrega = fecha.ToShortDateString();
+                        }
+                        else
+                        {
+                            fechaEntrega = "No hay fecha asignada";
+                        }
+
+                    }
+                    @fechaEntrega
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @Html.DisplayFor(modelItem => item.Paqueterias.Nombre)
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                    @Html.DisplayFor(modelItem => item.Ventas.Id)
+                </td>
+                <td style="font-family: 'Playfair Display'">
+                     @{
+                        estado = (int)item.Estado;
+                        string estadoLogico;
+                        if (estado == 1)
+                        {
+                            estadoLogico = "Activo";
+
+                        }else
+                        {
+                            estadoLogico = "Desactivado";
+                        }
+                    }
+                    @estadoLogico
+                </td>
+                <td style="font-family: 'Playfair Display';width:30rem" >
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-default" }) 
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-info" }) 
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>Nota: Recuerde que puede hacer una busqueda rapida en la parte superior</p>
+
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>

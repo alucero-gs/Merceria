@@ -1,0 +1,98 @@
+﻿@model MerceriaGit.Models.Envios
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center" style="font-family: 'Playfair Display'">Eliminar informacion</h2>
+
+<h3 class="text-center" style="font-family: 'Playfair Display'">¿Esta seguro en eliminar la informacion</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>
+            ID Venta
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ventas.Id)
+        </dd>
+        <dt>
+            Paqueteria
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paqueterias.Nombre)
+        </dd>
+        <dt>
+            Guia de seguimiento
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codigo_Rastreo)
+        </dd>
+
+        <dt>
+            Fecha de envio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Envio)
+        </dd>
+
+        <dt>
+            Fecha de entrega
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Estimada_Entrega)
+        </dd>
+
+        <dt>
+            Estado De envio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado_Envio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Entrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Entrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Regresar a la lista", "Index") |
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+            
+        </div>
+    }
+</div>

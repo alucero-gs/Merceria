@@ -5,9 +5,9 @@
 }
 
 <div class="container">
-    <h2 class="text-center" style="font-family: 'Playfair Display'">Carro</h2>
+    <h2 class="text-center" style="font-family: 'Playfair Display'">Pre Orden</h2>
     <br />
-    <p style="text-align:justify;font-family: 'Playfair Display'">Aqui se mostraran todos tus productos</p>
+    <p style="text-align:justify;font-family: 'Playfair Display'">Verifique todas sus productos y la cantidad sea correcta antes de proceder a pagar</p>
     <br />
 </div>
 
@@ -25,9 +25,9 @@
         </thead>
         <tbody id="myTable">
             @{
-                if (Session["cart"]==null)
+                if (Session["cart"] == null)
                 {
-                        <tr> No hay productos en el carrito</tr>
+                    <tr> No hay productos en el carrito</tr>
                 }
                 else
                 {
@@ -39,19 +39,18 @@
                                     <img style="height:5rem;width:5rem" src="~/Content/Imagenes/singer4423.jpg" alt="Alternate Text" />
                                     <div>
                                         <h4>@item.Product.Nombre</h4>
-                                        <a href="@Url.Action("Eliminar", "Carro", new { id = item.Product.Id})">Quitar</a>
                                     </div>
                                 </div>
                             </td>
                             <td>$ @item.Product.Precio_Venta</td>
-                            <td> <a class="glyphicon glyphicon-chevron-left" href="Carro/Eliminar2/@item.Product.Id"></a>@item.Cantidad<a class="glyphicon glyphicon-chevron-right" href="Carro/Agregar/@item.Product.Id"></a> unidades</td>
+                            <td> @item.Cantidad unidades</td>
                             <td>$ @(item.Product.Precio_Venta * item.Cantidad)</td>
                         </tr>
                     }
                 }
 
 
-}
+            }
         </tbody>
         <tfoot>
             <tr>
@@ -60,8 +59,8 @@
                 <td style="font-weight:700">Total</td>
                 <td style="font-weight:700">
                     $ @{
-                        var total=0.0;
-                        if (Session["cart"]==null)
+                        var total = 0.0;
+                        if (Session["cart"] == null)
                         {
                             total = 0.0;
                         }
@@ -83,9 +82,9 @@
 <br />
 
 <div style="display:flex;justify-content:space-around">
-    <a class="btn btn-info" style="width:50rem;font-size:2rem;font-family: 'Playfair Display'" href="@Url.Action("Index", "Home")">Seguir comprando</a>
+    <a class="btn btn-info" style="width:50rem;font-size:2rem;font-family: 'Playfair Display'" href="@Url.Action("Index", "Carro")">Regresar al carrito</a>
     <br />
-    <a class="btn btn-success" style="width:50rem;font-size:2rem;font-family: 'Playfair Display'" href="@Url.Action("preOrden", "Carro")">Finalizar compra</a>
+    <a class="btn btn-success" style="width:50rem;font-size:2rem;font-family: 'Playfair Display'" href="#">Realizar pago</a>
 </div>
 
 <script>

@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Envios</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <style>
+        font-family: 'Playfair Display', serif;
+    </style>
+</head>
+
+
+<body>
+    <hr />
+    <div class="container text-center" style="color:black; font-size:40rem;font-family: 'Playfair Display';font-style:italic">
+        <h1>MERCERIA.COM</h1>
+        <p class="lead">Somos tu mejor opción</p>
+    </div>
+    <hr />
+
+    <div class="container text-center">
+        <h1>Bienvenido Administrador</h1>
+        <p class="lead">En esta sección tendrá la oportunidad de crear nuevos registros, editar, eliminar y ver la información de cada registro.</p>
+        <hr />
+    </div>
+
+    <div class="container text-center">
+        <h2>Algunos catalogos a los que puedes acceder en el menú</h2>
+        <hr />
+        <div class="row text-center">
+            <div class="col-sm-4">
+                <h3>Categorias</h3>
+                <img src="~/Content/Images/icon_category.png" />
+                <br />
+                @Html.ActionLink("Ir", "Index", "Categorias", new { @class = "btn btn-info" })
+                <br />
+            </div>
+            <div class="col-sm-4">
+                <h3>Productos</h3>
+                <img src="~/Content/Images/icon_products.png" />
+                <br />
+                @Html.ActionLink("Ir", "Index", "Productos", new { @class = "btn btn-info" })
+                <br />
+            </div>
+            <div class="col-sm-4">
+                <h3>Envios</h3>
+                <img src="~/Content/Images/icon_money.png" />
+                <br />
+                @Html.ActionLink("Ir", "Index", "Envios", new { @class = "btn btn-info" })
+                <br />
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-sm-4">
+                <h3>Detalles de venta</h3>
+                <img src="~/Content/Images/icon_money.png" />
+                <br />
+                @Html.ActionLink("Ir", "Index", "DetalleVentas", new { @class = "btn btn-info" })
+                <br />
+            </div>
+            <div class="col-sm-4">
+                <h3>Tarjetas</h3>
+                <img src="~/Content/Images/icon_cards.png" />
+                <br />
+                @Html.ActionLink("Ir", "Index", "Tarjetas", new { @class = "btn btn-info" })
+                <br />
+            </div>
+            <div class="col-sm-4">
+                <h3>Usuarios</h3>
+                <img src="~/Content/Images/icon_users.png" />
+                <br />
+                @Html.ActionLink("Ir", "Index", "Usuarios", new { @class = "btn btn-info" })
+                <br />
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container body-content" style="margin-top:4rem">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Merceria</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
