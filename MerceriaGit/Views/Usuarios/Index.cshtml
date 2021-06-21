@@ -1,0 +1,117 @@
+﻿@model IEnumerable<MerceriaGit.Models.Usuarios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@{
+
+    DateTime dia = DateTime.Now;
+    var hora = dia.Hour;
+    string mensaje = "";
+    if (hora < 12)
+    {
+        mensaje = "Buenos Dias: ";
+    }
+    if ((hora >= 12) && (hora < 19))
+    {
+        mensaje = "Buenas tardes: ";
+    }
+    if (hora >= 19)
+    {
+        mensaje = "Buenas noches: ";
+    }
+
+    string nombre = (string)Session["name"];
+
+}
+
+<br />
+<div align="center">
+    <img src="~/Content/imagenes/merceria1.jpg" width="800" height="10%" />
+</div>
+
+<h2 style="font-family: 'Playfair Display'; text-align:center"> @mensaje @nombre</h2>
+<h3 style="font-family: 'Playfair Display'; text-align:center"> Aqui puedes ver todos los usuarios en el Sistema</h3>
+
+<p style="font-family: 'Playfair Display'">
+    @Html.ActionLink("Crear Nuevo Usuario", "Create")
+</p>
+<table class="table" style="font-family: 'Playfair Display'">
+    <tr style="font-family: 'Playfair Display'">
+        <th style="font-family: 'Playfair Display'">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th style="font-family: 'Playfair Display'">
+            @Html.DisplayNameFor(model => model.Apellido_Paterno)
+        </th>
+        <th style="font-family: 'Playfair Display'">
+            @Html.DisplayNameFor(model => model.Apellido_Materno)
+        </th>
+        <th style="font-family: 'Playfair Display'">
+            @Html.DisplayNameFor(model => model.Fecha_Nacimiento)
+        </th>
+        <th style="font-family: 'Playfair Display'">
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th style="font-family: 'Playfair Display'">
+            @Html.DisplayNameFor(model => model.Correo)
+        </th>
+        <th style="font-family: 'Playfair Display'">
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th style="font-family: 'Playfair Display'">
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th style="font-family: 'Playfair Display'">
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th style="font-family: 'Playfair Display'">
+            @Html.DisplayNameFor(model => model.TipoUsuario.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="font-family: 'Playfair Display'">
+            <td style="font-family: 'Playfair Display'">
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td style="font-family: 'Playfair Display'">
+                @Html.DisplayFor(modelItem => item.Apellido_Paterno)
+            </td>
+            <td style="font-family: 'Playfair Display'">
+                @Html.DisplayFor(modelItem => item.Apellido_Materno)
+            </td>
+            <td style="font-family: 'Playfair Display'">
+                @Html.DisplayFor(modelItem => item.Fecha_Nacimiento)
+            </td>
+            <td style="font-family: 'Playfair Display'">
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td style="font-family: 'Playfair Display'">
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td style="font-family: 'Playfair Display'">
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td style="font-family: 'Playfair Display'">
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td style="font-family: 'Playfair Display'">
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td style="font-family: 'Playfair Display'">
+                @Html.DisplayFor(modelItem => item.TipoUsuario.Nombre)
+            </td>
+            <td style="font-family: 'Playfair Display'">
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Acerca de", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

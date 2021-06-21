@@ -1,0 +1,116 @@
+﻿@model MerceriaGit.Models.Usuarios
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div align="center">
+    <img src="~/Content/imagenes/maquina.jpg" width="800" height="10%" />
+</div>
+<h2 style="font-family: 'Playfair Display'; text-align:center">Crea un Nuevo Usuario</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" style="font-family: 'Playfair Display'">
+        <h4 style="font-family: 'Playfair Display'; text-align:center">Deberas ingresar los siguientes datos para registrar un nuevo Usuario</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group" style="font-family: 'Playfair Display'">
+            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="font-family: 'Playfair Display'">
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="font-family: 'Playfair Display'">
+            @Html.LabelFor(model => model.Apellido_Paterno, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="font-family: 'Playfair Display'">
+                @Html.EditorFor(model => model.Apellido_Paterno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Apellido_Paterno, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="font-family: 'Playfair Display'">
+            @Html.LabelFor(model => model.Apellido_Materno, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="font-family: 'Playfair Display'">
+                @Html.EditorFor(model => model.Apellido_Materno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Apellido_Materno, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="font-family: 'Playfair Display'">
+            @Html.LabelFor(model => model.Fecha_Nacimiento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="font-family: 'Playfair Display'">
+                @Html.EditorFor(model => model.Fecha_Nacimiento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Fecha_Nacimiento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="font-family: 'Playfair Display'">
+            @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="font-family: 'Playfair Display'">
+                @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="font-family: 'Playfair Display'">
+            @Html.LabelFor(model => model.Correo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="font-family: 'Playfair Display'">
+                @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="font-family: 'Playfair Display'">
+            @Html.LabelFor(model => model.Id_TipoUsuario, "Id_TipoUsuario", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="font-family: 'Playfair Display'">
+                @Html.DropDownList("Id_TipoUsuario", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Id_TipoUsuario, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="font-family: 'Playfair Display'">
+            @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="font-family: 'Playfair Display'">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="font-family: 'Playfair Display'">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="font-family: 'Playfair Display'">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="font-family: 'Playfair Display'">
+            @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="font-family: 'Playfair Display'">
+                @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="font-family: 'Playfair Display'">
+            <div class="col-md-offset-2 col-md-10" style="font-family: 'Playfair Display'">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div style="font-family: 'Playfair Display'">
+    @Html.ActionLink("Volver", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
